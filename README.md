@@ -1,7 +1,5 @@
 # <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Vue.png" style="position: relative; top: 5px;" height="80" /> VueJS
 
-# VueJS
-
 ## VueJS with  Laravel 5
 * install laravel project on localhost
 * open project folder
@@ -46,3 +44,11 @@
 ## How to Webpack automatically recompile modified assets
 Type this command in your terminal <code>npm run watch</code>
 
+
+
+
+## Uncaught ReferenceError: Vue is not defined
+Make sure vue.js file added 
+```javascript
+<script src="https://unpkg.com/vue@2.4.2"></script>
+```
