@@ -35,3 +35,14 @@
 ...
 ```
 
+* <code>npm install</code>
+* open <code>myLaravelProjectFolder\resources\views\welcome.blade.php</code> and type this code with script tag <code>src="{{ asset("js/app.js") }}"</code>
+* open app.js from <code>myLaravelProjectFolder\resources\assets\js\app.js</code>
+* After coding you need to run webpack command <code>npm install dev</code>
+
+
+
+
+## How to Webpack automatically recompile modified assets
+Type this command in your terminal <code>npm run watch</code>
+
