@@ -52,3 +52,55 @@ Make sure vue.js file added
 ```javascript
 <script src="https://unpkg.com/vue@2.4.2"></script>
 ```
+
+
+
+
+## Pass array / JSON data to Laravel view and using VueJS
+
+#### views/welcome.blade.php
+```html
+<example-component></example-component>
+```
+
+#### assets/js/components/ExampleComponent.vue
+```javascript
+<template>
+    <div class="demo-example" >
+        type: {{ 2+4 }}
+        <hr/>
+
+        <table border=1>
+            <tr  v-for="item in groceryList">
+                <td>{{ item.id }}</td>
+                <td>{{ item.text }}</td>
+            </tr>
+        </table>
+        
+      
+    </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+    
+      groceryList: [
+            { id: 0, text: 'Vegetables' },
+            { id: 1, text: 'Cheese' },
+            { id: 2, text: 'Whatever else humans are supposed to eat' }
+        ]
+
+    }
+  }
+}
+
+</script>
+
+<style>
+.demo-example {
+  color: blue;
+}
+</style>
+```
