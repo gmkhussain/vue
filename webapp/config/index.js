@@ -27,7 +27,7 @@ module.exports = {
     // If true, eslint errors and warnings will also be shown in the error overlay
     // in the browser.
     showEslintErrorsInOverlay: false,
-
+    useEslint: false,
     /**
      * Source Maps
      */
@@ -55,7 +55,7 @@ module.exports = {
     /**
      * Source Maps
      */
-
+    useEslint: false,
     productionSourceMap: true,
     // https://webpack.js.org/configuration/devtool/#production
     devtool: '#source-map',
