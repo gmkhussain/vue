@@ -1,12 +1,23 @@
 <template>
   <div id="app">
+    <NavMain />
     <router-view/>
   </div>
 </template>
 
 <script>
+/* eslint-disable */
+import NavMain from '@/components/nav_main'
+
 export default {
-  name: 'App'
+  name: 'App',
+  mounted() {
+   //router.push( )
+   //router.push({ path: 'contact', query: { s: '123' }})
+  },
+  components: {
+    'NavMain': NavMain
+  }
 }
 </script>
 
