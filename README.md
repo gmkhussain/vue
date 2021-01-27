@@ -137,10 +137,36 @@ Note: ```-g``` refer to global
 
 The different ways of initializing an application are as follows: 
 
-```
+```js
 vue init webpack 
 vue init webpack-simple 
 vue init browserify 
 vue init browserify-simple 
 vue init simple
 ```
+
+
+## vue init webpack
+This command will inital Vue Project
+Some question will ask just answer all of them.
+
+```js
+? Generate project in current directory? Yes
+? Project name webapp
+? Project description A Vue.js project
+? Author hussain
+? Vue build standalone      
+? Install vue-router? Yes
+? Use ESLint to lint your code? Yes
+? Pick an ESLint preset Standard
+? Set up unit tests Yes
+? Pick a test runner jest
+? Setup e2e tests with Nightwatch? Yes
+? Should we run `npm install` for you after the project has been created? (recommended) npm
+```
+
+Once you done run this command
+
+```npm run dev```
+
+Now open in url on browser. 
