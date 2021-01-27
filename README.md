@@ -104,3 +104,43 @@ export default {
 }
 </style>
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Vue-CLI
+
+```npm install -g vue-cli```
+Note: ```-g``` refer to global
+
+The different ways of initializing an application are as follows: 
+
+```
+vue init webpack 
+vue init webpack-simple 
+vue init browserify 
+vue init browserify-simple 
+vue init simple
+```
