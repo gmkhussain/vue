@@ -1,6 +1,8 @@
 <template>
   <div class="dashboard">
     <strong>{{ msg }}</strong>
+     <div>Direct in HTML {{$route.params.id}}</div>
+    <div>from Script {{id}}</div>
    </div>
 </template>
 
@@ -9,7 +11,8 @@ export default {
   name: 'DashboardScreen',
   data () {
     return {
-      msg: 'Welcome to Dashboard'
+      msg: 'Welcome to dashboard',
+      id: parseInt(this.$route.params.id)
     }
   }
 }
