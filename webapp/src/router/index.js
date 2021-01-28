@@ -8,10 +8,13 @@ import NotFoundComponent from '@/components/not_found'
 Vue.use(Router)
 
  let routes = [
-    { path: '/home', name: 'Home', component: HomeScreen },
-    { path: '/login', name: 'Login', component: LoginScreen },
-    
-    { path: "/dashboard", name: "Dashboard", component: DashboardScreen },
+    { path: '/home', name: 'Home', component: HomeScreen, alias: ['/baz', '/home-alias'] },
+    { path: '/login', name: 'Login', component: LoginScreen, alias: 'login-alias',
+      children: [
+        { path: 'login-child', component: LoginScreen } //login/login-child
+      ]
+    },    
+    { path: "/dashboard", name: "Dashboard", component: DashboardScreen }, 
     { path: "/dashboard/:id", name: "Dashboard", component: DashboardScreen }, //domain/contact/myId-7
 
     { path: '*', component: NotFoundComponent }
