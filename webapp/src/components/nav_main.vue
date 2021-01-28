@@ -1,18 +1,21 @@
 <template>
   <div class="hello">
-    <a :href="'/home/'">Home</a>
-    <a :href="'/login/'">Login</a>
-    <a :href="'/dashboard/'">Dashboard</a>
-    <a :href="'/dashboard/?id=45454'">Dashboard?</a>
-    <a :href="'/404/'">404</a>
+    <router-link to="/home">Home</router-link>
+    
+    <router-link to='/404/'>404</router-link>
+
+    <router-link v-if="authenticated" to='/dashboard/'>Dashboard</router-link>
+    <!-- <router-link to='/dashboard/Id-18'>Dashboard?</router-link> -->
+    <router-link v-if="authenticated" to="/login" v-on:click.native="logout()" replace>Logout</router-link>
+    <router-link v-else to="/login">Login</router-link>
   </div>
 </template>
 <script>
 export default {
-  name: 'Nav',
+  name: 'NavMain',
   data () {
     return {
-      msg: 'Not found'
+     authenticated: false,
     }
   }
 }

@@ -302,3 +302,47 @@ Try having explicit closing tags instead:
 <home></home>
 <login></login>
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Difference between using <router-link> and <a>
+<router-link> is intended for in-app links (e.g., to a page within your app). Use <a> for external links.
+
+Take a look at <router-link> and <router-view>. This is how your application will handle routing. If you chose to have the router built-in using the CLI, you already have a nice template here to use!
+
+
+
+
+
+## Redirect
+We can add redirects from one route to another by adding the redirect property to a route.
+
+``` { path: "/dashboard", name: "Dashboard", component: DashboardScreen, redirect: to => "/home" }, ```
+
+
+
+
+
+## Alias
+A redirect means that when a user visits ```/foo``` then the URL will be replaced by ```/bar``` and then matched as ```/bar```.
+An alias means of ```/foo``` that’s set as ```/bar``` means that when the user visits ```/bar``` , the URL remains ```/bar```, but it’ll be matched as if the user is visiting ```/foo``` .
+
+```js 
+{ path: '/home', name: 'Home', component: HomeScreen, alias: ['/index', '/home-alias'] },
+{ path: '/login', name: 'Login', component: LoginScreen, alias: 'login-alias',
+  children: [
+    { path: 'login-child', component: LoginScreen } //login/login-child
+  ]
+},
+```

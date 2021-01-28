@@ -10,11 +10,18 @@
 export default {
   name: 'DashboardScreen',
   data () {
-    return {
-      msg: 'Welcome to dashboard',
-      id: parseInt(this.$route.params.id)
-    }
-  }
+      return {
+        msg: 'Welcome to dashboard',
+        id: parseInt(this.$route.params.id)
+      }
+    },
+    mounted() {
+        if(!this.$parent.authenticated) {
+            this.$router.replace({ name: "Login" });
+        }
+    }, 
+    methods: {
+    }    
 }
 </script>
 
