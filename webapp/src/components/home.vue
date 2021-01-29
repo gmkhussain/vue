@@ -18,6 +18,7 @@
         <td> {{ user.city }} </td>
       </tr>
     </table>
+    <button v-on:click="addUser">Add User</button>
 
    </div>
 </template>
@@ -36,6 +37,11 @@ export default {
         { id: '003', name: "Cody", city: "Barlin" },
         { id: '004', name: "Danny", city: "Venus" }
       ]
+    }
+  },
+  methods: {
+    addUser: function () {
+      this.users.push({ id: '005', name: "Eddy", city: "NY" })
     }
   }
 }

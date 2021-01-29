@@ -323,6 +323,51 @@ export default {
 
 
 
+## Loops and push data in loop
+
+```js
+<script>
+export default {
+  name: 'Home',
+  data () {
+    return {
+      name: "Amoos",
+      msg: 'Welcome to WebApp',
+      tooltip:  'Tooltip text',
+      users: [
+        { id: '001', name: "Amoos", city: "Paris" },
+        { id: '002', name: "Billy", city: "London" },
+        { id: '003', name: "Cody", city: "Barlin" },
+        { id: '004', name: "Danny", city: "Venus" }
+      ]
+    }
+  },
+  methods: {
+    addUser: function () {
+      this.users.push({ id: '005', name: "Eddy", city: "NY" })
+    }
+  }
+}
+</script>
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
