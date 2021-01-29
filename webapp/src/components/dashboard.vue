@@ -1,6 +1,7 @@
 <template>
   <div class="dashboard">
     <strong>{{ msg }}</strong>
+    {{ authenticated }}
      <div>Direct in HTML {{$route.params.id}}</div>
     <div>from Script {{id}}</div>
    </div>
@@ -9,10 +10,12 @@
 <script>
 export default {
   name: 'DashboardScreen',
+ 
   data () {
       return {
         msg: 'Welcome to dashboard',
-        id: parseInt(this.$route.params.id)
+        id: parseInt(this.$route.params.id),
+        authenticated: true,
       }
     },
     mounted() {
