@@ -4,10 +4,20 @@
 
     <div v-if="name">
       <span v-text="name"></span>
+       <span v-bind:title="tooltip">Hover Me</span>
     </div>
     <div v-else>
       Name not founded
+      <span v-title="tooltip"></span>
     </div>
+
+     <table>
+      <tr v-for="user in users">
+        <td> {{ user.id }} </td>
+        <td> {{ user.name }} </td>
+        <td> {{ user.city }} </td>
+      </tr>
+    </table>
 
    </div>
 </template>
@@ -18,7 +28,14 @@ export default {
   data () {
     return {
       name: "Amoos",
-      msg: 'Welcome to WebApp'
+      msg: 'Welcome to WebApp',
+      tooltip:  'Tooltip text',
+      users: [
+        { id: '001', name: "Amoos", city: "Paris" },
+        { id: '002', name: "Billy", city: "London" },
+        { id: '003', name: "Cody", city: "Barlin" },
+        { id: '004', name: "Danny", city: "Venus" }
+      ]
     }
   }
 }
