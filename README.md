@@ -199,6 +199,39 @@ Add this line top of your script where you want ignore eslint
 
 
 
+## if else condition
+
+```js
+<template>
+
+  <div class="main">
+    <div v-if="name">
+      <span v-text="name"> -> Condition True</span>
+    </div>
+    <div v-else>
+      Name not founded - > Condition False
+    </div>
+  </div>
+
+</template>
+
+<script>
+export default {
+  name: 'Home',
+  data () {
+    return {
+      name: "Amoos",
+      msg: 'Welcome to WebApp'
+    }
+  }
+}
+</script>
+```
+
+
+
+
+
 
 
 
@@ -346,3 +379,106 @@ An alias means of ```/foo``` that’s set as ```/bar``` means that when the user
   ]
 },
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## How to get data from child to parent in Vuejs?
+
+## $emit
+You can use ```$emit``` method for this purpose.
+v-on directive captures the child components events that is emitted by ```$emit```
+
+
+```js
+// Child component triggers clicked event :
+export default {
+   methods: {
+     onClickButton (event) {
+         this.$emit('clicked', 'someValue')
+     }
+   }
+}
+```
+
+
+```html
+// Parent component receive clicked event:
+<div>
+    <child @clicked="onClickChild"></child>
+</div>
+```
+
+```js
+export default {
+  methods: {
+      onClickChild (value) {
+          console.log(value) // someValue
+      }
+  }
+}
+```
+
+
+
+
+
+
+## $.emit more options
+```js
+this.$emit('clicked', 'someValue', 'someOtherValue');
+```
+
+```js
+//you can also pass an object
+this.$emit('clicked', {someValue, otherValue});
+```
+
+```js
+// and handle it as
+onClicked ({someValue, otherValue}) {
+  console.log(someValue, otherValue);
+}
+```
+
+or
+
+```js
+onClicked (payload) {
+  const {someValue, otherValue} = payload;
+  console.log(someValue, otherValue);
+}
+```
+
+
+
+
+```html
+you can pass arguments, and second value will be data from child component:
+
+<div v-for="(element, index) in myArray">
+  <child @clicked="onClickChild(index, ...arguments)"></child>
+</div>
+```
+
+
+
+### FAQ
+<product :premium=“premium” @add-to-cart=“updateCart” @remove-from-cart=“removeFromCart”>
+
+Can I add two functions to two events in a component? I have two buttons with two event emitters in the child component.
+
+How can I listen to those event emitters in the parent(root) component? Can I do it with the piece of code above? I’m new to vue, any help is much appreciated!
+
+
+

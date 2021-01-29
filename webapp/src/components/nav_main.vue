@@ -1,7 +1,6 @@
 <template>
   <div class="hello">
-
-    <div>{{authenticated}}</div>
+    <div>{{ authenticated }}</div>
 
     <router-link to="/home">Home</router-link>
 
@@ -17,7 +16,7 @@
     >
     <router-link v-else to="/login">Login</router-link>
 
-    <button @click="onClickButton">Text</button>
+    <button @click="onClickButton">Change Login Navbar</button>
   </div>
 </template>
 <script>
@@ -29,9 +28,9 @@ export default {
     };
   },
   methods: {
-    onClickButton (event) {
-         this.$emit('clicked', 'someValue')
-     }
+    onClickButton(event) {
+      this.$emit("clicked", (this.authenticated = true));
+    },
   },
 };
 </script>

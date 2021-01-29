@@ -20,7 +20,8 @@ export default {
     },
     mounted() {
         if(!this.$parent.authenticated) {
-            this.$router.replace({ name: "Login" });
+          this.$router.replace({ name: "Login" });
+          //this.$emit("clicked", (this.authenticated = true))
         }
     }, 
     methods: {
