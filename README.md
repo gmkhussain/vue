@@ -358,6 +358,107 @@ export default {
 
 
 
+## v-model
+The v-model directive that makes two-way binding between form input and app.
+
+```js
+<div id="app">
+  <p>{{ inputtext }}</p>
+  <input v-model="inputtext">
+</div>
+
+
+
+// home.vue
+export default {
+  name: 'Home',
+  data () {
+    return {
+      inputtext: 'Change my text',
+    }
+  }
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## instance
+
+```js
+var data = { a: 1 }
+var vm = new Vue({
+  el: '#example',
+  data: data
+})
+
+vm.$data === data // => true
+vm.$el === document.getElementById('example') // => true
+
+// $watch is an instance method
+vm.$watch('a', function (newValue, oldValue) {
+  // This callback will be called when `vm.a` changes
+})
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Created
+
+```js
+export default {
+  name: 'Home',
+  created() {
+    /*
+     * created hook can be used to run code after an instance is created
+     */
+    console.log("Created")
+  },
+```
+
+Note: Don’t use arrow functions on an options property or callback, such as created: () => console.log(this.a) or vm.$watch('a', newValue => this.myMethod()). Since an arrow function doesn’t have a this, this will be treated as any other variable and lexically looked up through parent scopes until found, often resulting in errors such as Uncaught TypeError: Cannot read property of undefined or Uncaught TypeError: this.myMethod is not a function.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

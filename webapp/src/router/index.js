@@ -11,9 +11,7 @@ Vue.use(Router)
     { path: '/home', name: 'Home', component: HomeScreen, alias: ['/baz', '/home-alias'] },
     { path: '/login',
       name: 'Login',
-        component: function () {
-        return import(/* webpackChunkName: "about" */ '../components/login.vue')
-      }
+        component: () => { return import('@/components/login.vue') }
     },    
     { path: "/dashboard", name: "Dashboard", component: DashboardScreen }, 
     { path: "/dashboard/:id", name: "Dashboard", component: DashboardScreen }, //domain/contact/myId-7
