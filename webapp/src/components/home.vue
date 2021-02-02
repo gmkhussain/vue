@@ -4,7 +4,7 @@
 
     <div v-if="name">
       <span v-text="name"></span>
-       <span v-bind:title="tooltip">Hover Me</span>
+      <span v-bind:title="tooltip">Hover Me</span>
     </div>
     <div v-else>
       Name not founded
@@ -20,6 +20,10 @@
     </table>
     <button v-on:click="addUser">Add User</button>
 
+    <p>{{ num1 * num2 }}</p>
+    <input v-model="num1">
+    <input v-model="num2">
+
    </div>
 </template>
 
@@ -31,6 +35,9 @@ export default {
       name: "Amoos",
       msg: 'Welcome to WebApp',
       tooltip:  'Tooltip text',
+      num1: 1,
+      num2: 1,
+      
       users: [
         { id: '001', name: "Amoos", city: "Paris" },
         { id: '002', name: "Billy", city: "London" },

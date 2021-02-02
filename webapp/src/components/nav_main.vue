@@ -1,7 +1,8 @@
 <template>
-  <div class="hello">
+  <div class="text-center">
+    
     <div>{{ authenticated }}</div>
-
+     
     <router-link to="/home">Home</router-link>
 
     <router-link to="/404/">404</router-link>
@@ -19,7 +20,11 @@
     <button @click="onClickButton">Change Login Navbar</button>
   </div>
 </template>
+
+
 <script>
+
+
 export default {
   name: "NavMain",
   data() {
@@ -31,6 +36,6 @@ export default {
     onClickButton(event) {
       this.$emit("clicked", (this.authenticated = true));
     },
-  },
+  }
 };
 </script>

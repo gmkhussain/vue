@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <LogoBrand/>
     <NavMain @clicked="onClickChild" />
     <router-view @authenticated="setAuthenticated" />
   </div>
@@ -7,6 +8,7 @@
 
 <script>
 /* eslint-disable */
+import LogoBrand from "@/components/logo_brand";
 import NavMain from "@/components/nav_main";
 
 export default {
@@ -39,14 +41,12 @@ export default {
   },
   components: {
     NavMain: NavMain,
+    LogoBrand: LogoBrand,
   },
 };
 </script>
 
-<style>
-#app {
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="sass">
+@import "./assets/main.scss"
 </style>
+
