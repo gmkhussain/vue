@@ -33,6 +33,12 @@
 <script>
 export default {
   name: 'Home',
+  created() {
+    /*
+     * created hook can be used to run code after an instance is created
+     */
+    console.log("Created")
+  },
   data () {
     return {
       name: "Amoos",
