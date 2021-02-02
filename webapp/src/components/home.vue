@@ -11,6 +11,12 @@
       <span v-title="tooltip"></span>
     </div>
 
+    <div class="input">
+      <p>{{inputtext}}</p>
+      <input type="text" v-model="inputtext" />
+      <button v-on:click="inputtext = 'baz'">Change it to baz</button>
+    </div>
+
      <table>
       <tr v-for="user in users">
         <td> {{ user.id }} </td>
@@ -19,6 +25,7 @@
       </tr>
     </table>
     <button v-on:click="addUser">Add User</button>
+
 
    </div>
 </template>
@@ -29,6 +36,7 @@ export default {
   data () {
     return {
       name: "Amoos",
+      inputtext: 'Change my text',
       msg: 'Welcome to WebApp',
       tooltip:  'Tooltip text',
       users: [
