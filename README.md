@@ -729,7 +729,6 @@ How can I listen to those event emitters in the parent(root) component? Can I do
 
 
 
-
 ## Initialize Axios for Vue.js 2 CRUD HTTP Client
 
 ```npm install axios```
