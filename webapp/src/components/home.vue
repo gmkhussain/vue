@@ -67,7 +67,11 @@ export default {
      * Mounting takes place at the Virtual Dom Level, before the User sees anything.
      */
     console.log("Monted")
+  },
+  update() {
+    console.log("Update")
   }
+
 }
 </script>
 

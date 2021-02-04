@@ -460,6 +460,7 @@ Mounting takes place at the Virtual Dom Level, before the User sees anything.
 
 What is mounting in vue? In vue, every instance is first stored as Virtual DOM objects(virtual html elements) in memory.When Vue create those components(virtual DOM)visible to the real DOM(Actual html elements) , the moment in which it create virtual DOM into real DOM is call 'Mounting
 
+As the app state changes , vue detect changes user expect to see and put data changes to the real DOM from the memory.That is called an 'update'. The entire process is called Vue Lifescyclehooks which has four stages, namely create,mount,update and destroyed.
 
 
 
