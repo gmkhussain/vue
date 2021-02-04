@@ -3,7 +3,8 @@ module.exports = {
     devServer: {
       overlay: {
         warnings: false,
-        errors: false
+        errors: false,
+        port: 8081
       }
     }
   }

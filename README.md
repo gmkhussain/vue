@@ -1198,6 +1198,28 @@ export default {
 
 
 
+
+
+
+
+
+
+## Configure Port for Vue.js 2 CRUD App
+Because most of HTTP Server use CORS configuration that accepts resource sharing retricted to some sites or ports, so we also need to configure port for our App.
+
+In project root folder, create vue.config.js file with following content:
+
+```js
+module.exports = {
+  devServer: {
+    port: 8081
+  }
+}
+```
+
+
+
+
 ## WPJson Urls
 https://example.com/wp-json/wp/v2/posts
 https://example.com/wp-json/wp/v2/posts?_fields=id,link
