@@ -6,14 +6,13 @@
 </template>
 
 <script>
-/* eslint-disable */
 import NavMain from "@/components/nav_main";
 
 export default {
   name: "App",
   data() {
     return {
-      authenticated: false,
+      authenticated: false, 
       // this is only for testing purposes no actual app will have this
       // an api call will validate user credentials
       mockAccount: {
