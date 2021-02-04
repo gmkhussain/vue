@@ -808,6 +808,396 @@ export default new TutorialDataService();
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+### Tutorial.vue
+
+```js
+<template>
+  <div v-if="currentTutorial" class="edit-form">
+    <h4>Tutorial</h4>
+    <form>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title"
+          v-model="currentTutorial.title"
+        />
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input type="text" class="form-control" id="description"
+          v-model="currentTutorial.description"
+        />
+      </div>
+
+      <div class="form-group">
+        <label><strong>Status:</strong></label>
+        {{ currentTutorial.published ? "Published" : "Pending" }}
+      </div>
+    </form>
+
+    <button class="badge badge-primary mr-2"
+      v-if="currentTutorial.published"
+      @click="updatePublished(false)"
+    >
+      UnPublish
+    </button>
+    <button v-else class="badge badge-primary mr-2"
+      @click="updatePublished(true)"
+    >
+      Publish
+    </button>
+
+    <button class="badge badge-danger mr-2"
+      @click="deleteTutorial"
+    >
+      Delete
+    </button>
+
+    <button type="submit" class="badge badge-success"
+      @click="updateTutorial"
+    >
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+
+  <div v-else>
+    <br />
+    <p>Please click on a Tutorial...</p>
+  </div>
+</template>
+
+<script>
+import TutorialDataService from "../services/TutorialDataService";
+
+export default {
+  name: "tutorial",
+  data() {
+    return {
+      currentTutorial: null,
+      message: ''
+    };
+  },
+  methods: {
+    getTutorial(id) {
+      TutorialDataService.get(id)
+        .then(response => {
+          this.currentTutorial = response.data;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    },
+
+    updatePublished(status) {
+      var data = {
+        id: this.currentTutorial.id,
+        title: this.currentTutorial.title,
+        description: this.currentTutorial.description,
+        published: status
+      };
+
+      TutorialDataService.update(this.currentTutorial.id, data)
+        .then(response => {
+          this.currentTutorial.published = status;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    },
+
+    updateTutorial() {
+      TutorialDataService.update(this.currentTutorial.id, this.currentTutorial)
+        .then(response => {
+          console.log(response.data);
+          this.message = 'The tutorial was updated successfully!';
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    },
+
+    deleteTutorial() {
+      TutorialDataService.delete(this.currentTutorial.id)
+        .then(response => {
+          console.log(response.data);
+          this.$router.push({ name: "tutorials" });
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
+  },
+  mounted() {
+    this.message = '';
+    this.getTutorial(this.$route.params.id);
+  }
+};
+</script>
+
+<style>
+.edit-form {
+  max-width: 300px;
+  margin: auto;
+}
+</style>
+```
+
+
+
+
+### AddTutorial.vue
+
+```js
+<template>
+  <div class="submit-form">
+    <div v-if="!submitted">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          required
+          v-model="tutorial.title"
+          name="title"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input
+          class="form-control"
+          id="description"
+          required
+          v-model="tutorial.description"
+          name="description"
+        />
+      </div>
+
+      <button @click="saveTutorial" class="btn btn-success">Submit</button>
+    </div>
+
+    <div v-else>
+      <h4>You submitted successfully!</h4>
+      <button class="btn btn-success" @click="newTutorial">Add</button>
+    </div>
+  </div>
+</template>
+
+<script>
+import TutorialDataService from "../services/TutorialDataService";
+
+export default {
+  name: "add-tutorial",
+  data() {
+    return {
+      tutorial: {
+        id: null,
+        title: "",
+        description: "",
+        published: false
+      },
+      submitted: false
+    };
+  },
+  methods: {
+    saveTutorial() {
+      var data = {
+        title: this.tutorial.title,
+        description: this.tutorial.description
+      };
+
+      TutorialDataService.create(data)
+        .then(response => {
+          this.tutorial.id = response.data.id;
+          console.log(response.data);
+          this.submitted = true;
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    },
+    
+    newTutorial() {
+      this.submitted = false;
+      this.tutorial = {};
+    }
+  }
+};
+</script>
+
+<style>
+.submit-form {
+  max-width: 300px;
+  margin: auto;
+}
+</style>
+```
+
+
+
+
+### TutorialsList.vue
+
+```js
+<template>
+  <div class="list row">
+    <div class="col-md-8">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Search by title"
+          v-model="title"/>
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button"
+            @click="searchTitle"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h4>Tutorials List</h4>
+      <ul class="list-group">
+        <li class="list-group-item"
+          :class="{ active: index == currentIndex }"
+          v-for="(tutorial, index) in tutorials"
+          :key="index"
+          @click="setActiveTutorial(tutorial, index)"
+        >
+          {{ tutorial.title }}
+        </li>
+      </ul>
+
+      <button class="m-3 btn btn-sm btn-danger" @click="removeAllTutorials">
+        Remove All
+      </button>
+    </div>
+    <div class="col-md-6">
+      <div v-if="currentTutorial">
+        <h4>Tutorial</h4>
+        <div>
+          <label><strong>Title:</strong></label> {{ currentTutorial.title }}
+        </div>
+        <div>
+          <label><strong>Description:</strong></label> {{ currentTutorial.description }}
+        </div>
+        <div>
+          <label><strong>Status:</strong></label> {{ currentTutorial.published ? "Published" : "Pending" }}
+        </div>
+
+        <a class="badge badge-warning"
+          :href="'/tutorials/' + currentTutorial.id"
+        >
+          Edit
+        </a>
+      </div>
+      <div v-else>
+        <br />
+        <p>Please click on a Tutorial...</p>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import TutorialDataService from "../services/TutorialDataService";
+
+export default {
+  name: "tutorials-list",
+  data() {
+    return {
+      tutorials: [],
+      currentTutorial: null,
+      currentIndex: -1,
+      title: ""
+    };
+  },
+  methods: {
+    retrieveTutorials() {
+      TutorialDataService.getAll()
+        .then(response => {
+          this.tutorials = response.data;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    },
+
+    refreshList() {
+      this.retrieveTutorials();
+      this.currentTutorial = null;
+      this.currentIndex = -1;
+    },
+
+    setActiveTutorial(tutorial, index) {
+      this.currentTutorial = tutorial;
+      this.currentIndex = index;
+    },
+
+    removeAllTutorials() {
+      TutorialDataService.deleteAll()
+        .then(response => {
+          console.log(response.data);
+          this.refreshList();
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    },
+    
+    searchTitle() {
+      TutorialDataService.findByTitle(this.title)
+        .then(response => {
+          this.tutorials = response.data;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
+  },
+  mounted() {
+    this.retrieveTutorials();
+  }
+};
+</script>
+
+<style>
+.list {
+  text-align: left;
+  max-width: 750px;
+  margin: auto;
+}
+</style>
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## WPJson Urls
 https://example.com/wp-json/wp/v2/posts
 https://example.com/wp-json/wp/v2/posts?_fields=id,link
