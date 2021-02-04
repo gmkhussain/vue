@@ -26,7 +26,9 @@
     </table>
     <button v-on:click="addUser">Add User</button>
 
-
+ <p>{{ num1 * num2 }}</p>
+    <input v-model="num1">
+    <input v-model="num2">
    </div>
 </template>
 
@@ -45,6 +47,8 @@ export default {
       inputtext: 'Change my text',
       msg: 'Welcome to WebApp',
       tooltip:  'Tooltip text',
+	  num1: 1,
+      num2: 1,
       users: [
         { id: '001', name: "Amoos", city: "Paris" },
         { id: '002', name: "Billy", city: "London" },

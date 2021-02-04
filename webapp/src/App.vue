@@ -1,18 +1,21 @@
 <template>
   <div id="app">
+    <LogoBrand/>
     <NavMain @clicked="onClickChild" />
     <router-view @authenticated="setAuthenticated" />
   </div>
 </template>
 
 <script>
+/* eslint-disable */
+import LogoBrand from "@/components/logo_brand";
 import NavMain from "@/components/nav_main";
 
 export default {
   name: "App",
   data() {
     return {
-      authenticated: false, 
+      authenticated: false,
       // this is only for testing purposes no actual app will have this
       // an api call will validate user credentials
       mockAccount: {
@@ -38,14 +41,12 @@ export default {
   },
   components: {
     NavMain: NavMain,
+    LogoBrand: LogoBrand,
   },
 };
 </script>
 
-<style>
-#app {
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="sass">
+@import "./assets/main.scss"
 </style>
+
