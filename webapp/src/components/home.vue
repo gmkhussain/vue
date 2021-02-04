@@ -35,12 +35,6 @@
 <script>
 export default {
   name: 'Home',
-  created() {
-    /*
-     * created hook can be used to run code after an instance is created
-     */
-    console.log("Created")
-  },
   data () {
     return {
       name: "Amoos",
@@ -61,6 +55,18 @@ export default {
     addUser: function () {
       this.users.push({ id: '005', name: "Eddy", city: "NY" })
     }
+  },
+  created() {
+    /*
+     * created hook can be used to run code after an instance is created
+     */
+    console.log("Created")
+  },
+  mounted() {
+    /*
+     * Mounting takes place at the Virtual Dom Level, before the User sees anything.
+     */
+    console.log("Monted")
   }
 }
 </script>

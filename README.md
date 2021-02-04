@@ -454,7 +454,11 @@ Note: Don’t use arrow functions on an options property or callback, such as cr
 
 
 
+## Mounted() Explained
 
+Mounting takes place at the Virtual Dom Level, before the User sees anything.
+
+What is mounting in vue? In vue, every instance is first stored as Virtual DOM objects(virtual html elements) in memory.When Vue create those components(virtual DOM)visible to the real DOM(Actual html elements) , the moment in which it create virtual DOM into real DOM is call 'Mounting
 
 
 
@@ -718,3 +722,14 @@ How can I listen to those event emitters in the parent(root) component? Can I do
 
 
 
+
+
+
+## WPJson Urls
+https://example.com/wp-json/wp/v2/posts
+https://example.com/wp-json/wp/v2/posts?_fields=id,link
+
+
+Currently we have to fetch all available items with paging, like:
+https://example.comwp-json/wp/v2/posts?_fields=slug&per_page=100&page=1
+https://example.comwp-json/wp/v2/posts?_fields=slug&per_page=100&page=2

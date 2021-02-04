@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <LogoBrand/>
+    <!--LogoBrand/-->
     <NavMain @clicked="onClickChild" />
     <router-view @authenticated="setAuthenticated" />
   </div>
