@@ -726,6 +726,41 @@ How can I listen to those event emitters in the parent(root) component? Can I do
 
 
 
+
+
+
+
+## Initialize Axios for Vue.js 2 CRUD HTTP Client
+
+```npm install axios```
+
+Then, under src folder, we create ```http-common.js``` file like this:
+
+
+```js
+import axios from "axios";
+
+export default axios.create({
+  baseURL: "http://localhost:8080/api",
+  headers: {
+    "Content-type": "application/json"
+  }
+});
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## WPJson Urls
 https://example.com/wp-json/wp/v2/posts
 https://example.com/wp-json/wp/v2/posts?_fields=id,link
