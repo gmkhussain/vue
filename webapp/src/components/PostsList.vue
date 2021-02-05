@@ -43,7 +43,7 @@
               <td>{{ post.attachment }}</td>
               <td>{{ post.status }}</td>
               <td>
-                <button>D</button>
+                <button @click="deletePost()">D</button>
                 <button>E</button>
               </td>
             </tr>
@@ -74,6 +74,18 @@ export default {
         .then(response => {
           this.posts = response.data;
           console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    },
+    deletePost() {
+      //console.log(x)
+      this.posts.id=5
+      PostDataService.delete(this.posts.id)
+        .then(response => {
+          console.log(response.data);
+          this.$router.push({ name: "posts" });
         })
         .catch(e => {
           console.log(e);
