@@ -1228,3 +1228,14 @@ https://example.com/wp-json/wp/v2/posts?_fields=id,link
 Currently we have to fetch all available items with paging, like:
 https://example.comwp-json/wp/v2/posts?_fields=slug&per_page=100&page=1
 https://example.comwp-json/wp/v2/posts?_fields=slug&per_page=100&page=2
+
+
+
+
+
+
+## Concatenate variable and text in Vuejs
+
+```html
+<a :href="`posts/${post.id}`">{{ post.title }}</a>
+```

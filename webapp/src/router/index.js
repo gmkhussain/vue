@@ -19,19 +19,19 @@ Vue.use(Router)
     { path: '*', component: NotFoundComponent },
     {
       path: "/",
-      alias: "/tutorials",
-      name: "tutorials",
-      component: () => import("@/components/TutorialsList")
+      alias: "/posts",
+      name: "posts",
+      component: () => import("@/components/PostsList")
     },
     {
-      path: "/tutorials/:id",
-      name: "tutorial-details",
-      component: () => import("@/components/Tutorial")
+      path: "/posts/:id",
+      name: "post_detail",
+      component: () => import("@/components/PostDetail")
     },
     {
       path: "/add",
       name: "add",
-      component: () => import("@/components/AddTutorial")
+      component: () => import("@/components/PostAdd")
     }
   ]
 

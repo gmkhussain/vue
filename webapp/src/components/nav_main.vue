@@ -3,7 +3,7 @@
     
     <div>{{ authenticated }}</div>
      
-    <router-link to="/tutorials" class="nav-link">Tutorials</router-link>
+    <router-link to="/posts" class="nav-link">posts</router-link>
     <router-link to="/add" class="nav-link">Add</router-link>
 
     <router-link to="/home">Home</router-link>

@@ -35,13 +35,13 @@
 </template>
 
 <script>
-import TutorialDataService from "../services/TutorialDataService";
+import PostDataService from "../services/PostDataService";
 
 export default {
-  name: "add-tutorial",
+  name: "add-post",
   data() {
     return {
-      tutorial: {
+      post: {
         id: null,
         title: "",
         description: "",
@@ -51,27 +51,7 @@ export default {
     };
   },
   methods: {
-    saveTutorial() {
-      var data = {
-        title: this.tutorial.title,
-        description: this.tutorial.description
-      };
-
-      TutorialDataService.create(data)
-        .then(response => {
-          this.tutorial.id = response.data.id;
-          console.log(response.data);
-          this.submitted = true;
-        })
-        .catch(e => {
-          console.log(e);
-        });
-    },
-    
-    newTutorial() {
-      this.submitted = false;
-      this.tutorial = {};
-    }
+  
   }
 };
 </script>
