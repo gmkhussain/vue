@@ -38,6 +38,9 @@
       
     <pre>{{ $data }}</pre>
 
+    
+    
+
    </div>
 </template>
 

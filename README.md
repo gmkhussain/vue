@@ -1348,3 +1348,37 @@ export default {
 }
 </script>
 ```
+
+
+
+
+
+
+
+
+
+
+## Difference between v-model and v-bind
+```js
+<input v-model="something">
+// is essentially the same as:
+
+<input
+   v-bind:value="something"
+   v-on:input="something = $event.target.value"
+>
+
+//or (shorthand syntax):
+
+<input
+   :value="something"
+   @input="something = $event.target.value"
+>
+```
+
+
+#### v-model
+is a two-way binding for form inputs. It combines v-bind, which brings a js value into the markup, and v-on:input to update the js value.
+
+#### v-model
+when you can. Use v-bind/v-on when you must :-) I hope your answer was accepted.
