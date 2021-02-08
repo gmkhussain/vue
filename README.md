@@ -1277,7 +1277,40 @@ export default {
   },
 }
 </script>
+```
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## How to get query parameters from a URL in VueJs
+
+```js
+<template>
+//...
+    <router-link to="/home?test=somthing">Home?test=somthing</router-link>
+//...
+</template>
+
+
+<script>
+//...
+created() {
+  console.log(this.$route.query.test)
+}
+//...
+</script>
 ```

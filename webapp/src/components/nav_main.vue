@@ -8,6 +8,8 @@
 
     <router-link to="/home">Home</router-link>
 
+    <router-link to="/home?test=somthing">Home?test=somthing</router-link>
+
     <router-link to="/404/">404</router-link>
     <!-- <router-link to='/dashboard/Id-18'>Dashboard?</router-link> -->
     <router-link v-if="authenticated" to="/dashboard/">Dashboard</router-link>

@@ -68,6 +68,7 @@ export default {
      * created hook can be used to run code after an instance is created
      */
     console.log("Created")
+    console.log(this.$route.query.test)
   },
   mounted() {
     /*
