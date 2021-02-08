@@ -1239,3 +1239,45 @@ https://example.comwp-json/wp/v2/posts?_fields=slug&per_page=100&page=2
 ```html
 <a :href="`posts/${post.id}`">{{ post.title }}</a>
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+## Watch: mode to detect changes
+
+```
+<template>
+   <div class="input">
+      <p>{{inputtext}}</p>
+      <input type="text" v-model="inputtext" />
+      <button v-on:click="inputtext = 'baz'">Change it to baz</button>
+    </div>
+</template>
+
+<script>
+export default {
+  name: 'Home',
+  data () {
+    return {
+      inputtext: 'Change my text',  
+    }
+  },
+  watch: { 
+    inputtext: function(newVal, oldVal) {
+      console.log('New value: ', newVal, ' | Old value: ', oldVal)
+    }
+  },
+}
+</script>
+
+
+
+```

@@ -26,9 +26,11 @@
     </table>
     <button v-on:click="addUser">Add User</button>
 
- <p>{{ num1 * num2 }}</p>
+    <p>{{ num1 * num2 }}</p>
     <input v-model="num1">
     <input v-model="num2">
+ 
+
    </div>
 </template>
 
@@ -54,6 +56,11 @@ export default {
   methods: {
     addUser: function () {
       this.users.push({ id: '005', name: "Eddy", city: "NY" })
+    }
+  },
+  watch: { 
+    inputtext: function(newVal, oldVal) {
+      console.log('New value: ', newVal, ' | Old value: ', oldVal)
     }
   },
   created() {
