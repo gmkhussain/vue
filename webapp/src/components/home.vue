@@ -31,6 +31,13 @@
     <input v-model="num2">
  
 
+
+
+    <button @click="num1 = (num1 + 1) % 2">Toggle Enable/Disabled</button>
+    <input type="text" :disabled="num1 == 1">
+      
+    <pre>{{ $data }}</pre>
+
    </div>
 </template>
 
@@ -43,7 +50,7 @@ export default {
       inputtext: 'Change my text',
       msg: 'Welcome to WebApp',
       tooltip:  'Tooltip text',
-	  num1: 1,
+	    num1: 1,
       num2: 1,
       users: [
         { id: '001', name: "Amoos", city: "Paris" },

@@ -1314,3 +1314,37 @@ created() {
 //...
 </script>
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+## How to enable / disable input on click in VueJS
+
+```js
+<template>
+    <button @click="num1 = (num1 + 1) % 2">Toggle Enable/Disabled</button>
+    <input type="text" :disabled="num1 == 1">
+      
+    <pre>{{ $data }}</pre>
+</template>
+
+
+<script>
+export default {
+  name: 'Home',
+  data () {
+    return {
+	    num1: 1,
+  },
+}
+</script>
+```
