@@ -1,5 +1,70 @@
 # <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Vue.png" style="position: relative; top: 5px;" height="80" /> VueJS
 
+
+## Install NPM
+Install NPM
+
+
+To test the update, run the outdated command. There should not be any output.
+```npm outdated```
+
+#### Updating globally-installed packages
+```npm install npm@latest -g```
+
+
+
+
+## How check all globally installed packages
+Display a tree of every package found in the user’s folders (without the -g option it only shows the current directory’s packages)
+
+```npm list -g --depth=0```
+
+```js
+C:\Users\your-user-name\AppData\Roaming\npm
+├── @angular/cli@11.0.5
+├── cross-env@7.0.3
+├── npm@7.5.3
+├── touch-cli@0.0.1
+└── vue-cli@2.9.6
+```
+
+
+
+
+
+
+## How to check VueJS version
+
+```vue --version```
+
+
+
+
+
+## VueCLI Upgrade to latest
+
+vue-cli 3.x is changed to @vue/cli. Therefore, no direct upgrade exists.
+
+Uninstall old version if you no longer need it, or if latest install command gives error:
+```npm uninstall -g vue-cli```
+
+Use the following command to install the latest vue-cli version:
+```npm install -g @vue/cli@latest```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## VueJS with  Laravel 5
 * install laravel project on localhost
 * open project folder
@@ -361,6 +426,7 @@ export default {
 ## v-model
 The v-model directive that makes two-way binding between form input and app.
 
+
 ```js
 <div id="app">
   <p>{{ inputtext }}</p>
@@ -379,6 +445,12 @@ export default {
   }
 }
 ```
+
+
+
+Note: v-model works with ```data()``` function ```Props`` are read-only but you are trying to change its value with v-model. In this case, if you change the input value, the prop is not modified and the value is restored on the next update.
+
+We can use a computed ```setter setter```
 
 
 
