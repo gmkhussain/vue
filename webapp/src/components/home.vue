@@ -26,9 +26,21 @@
     </table>
     <button v-on:click="addUser">Add User</button>
 
- <p>{{ num1 * num2 }}</p>
+    <p>{{ num1 * num2 }}</p>
     <input v-model="num1">
     <input v-model="num2">
+ 
+
+
+
+    <button @click="num1 = (num1 + 1) % 2">Toggle Enable/Disabled</button>
+    <input type="text" :disabled="num1 == 1">
+      
+    <pre>{{ $data }}</pre>
+
+    
+    
+
    </div>
 </template>
 
@@ -41,7 +53,7 @@ export default {
       inputtext: 'Change my text',
       msg: 'Welcome to WebApp',
       tooltip:  'Tooltip text',
-	  num1: 1,
+	    num1: 1,
       num2: 1,
       users: [
         { id: '001', name: "Amoos", city: "Paris" },
@@ -56,11 +68,17 @@ export default {
       this.users.push({ id: '005', name: "Eddy", city: "NY" })
     }
   },
+  watch: { 
+    inputtext: function(newVal, oldVal) {
+      console.log('New value: ', newVal, ' | Old value: ', oldVal)
+    }
+  },
   created() {
     /*
      * created hook can be used to run code after an instance is created
      */
     console.log("Created")
+    console.log(this.$route.query.test)
   },
   mounted() {
     /*
