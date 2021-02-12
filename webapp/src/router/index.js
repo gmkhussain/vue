@@ -32,6 +32,11 @@ Vue.use(Router)
       path: "/add",
       name: "add",
       component: () => import("@/components/PostAdd")
+    },
+    {
+      path: "/form-validation",
+      name: "form-validation",
+      component: () => import("@/components/forms/validation")
     }
   ]
 

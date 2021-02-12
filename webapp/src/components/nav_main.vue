@@ -20,7 +20,11 @@
       replace
       >Logout</router-link
     >
+
+    
     <router-link v-else to="/login">Login</router-link>
+
+    <router-link to="/form-validation">Form Validation</router-link>
 
     <button @click="onClickButton">Change Login Navbar</button>
   </div>
