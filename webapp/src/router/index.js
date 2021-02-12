@@ -37,6 +37,11 @@ Vue.use(Router)
       path: "/form-validation",
       name: "form-validation",
       component: () => import("@/components/forms/validation")
+    },
+    {
+      path: "/form-custom-validation",
+      name: "form-custom-validation",
+      component: () => import("@/components/forms/custom-validation")
     }
   ]
 
