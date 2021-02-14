@@ -32,6 +32,21 @@ Vue.use(Router)
       path: "/add",
       name: "add",
       component: () => import("@/components/PostAdd")
+    },    
+    {
+      path: "/interpolations",
+      name: "interpolations_",
+      component: () => import("@/components/templates/interpolations")
+    },
+    {
+      path: "/form-validation",
+      name: "form-validation",
+      component: () => import("@/components/forms/validation")
+    },
+    {
+      path: "/form-custom-validation",
+      name: "form-custom-validation",
+      component: () => import("@/components/forms/custom-validation")
     }
   ]
 

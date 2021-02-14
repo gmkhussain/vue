@@ -1454,3 +1454,232 @@ is a two-way binding for form inputs. It combines v-bind, which brings a js valu
 
 #### v-model
 when you can. Use v-bind/v-on when you must :-) I hope your answer was accepted.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Form Validation
+
+```js
+<template>
+    <form id="form" @submit="checkForm">
+
+        <p v-if="input.errors.length">
+            <b>Please correct the following error(s):</b>
+            <ul>
+                <li v-for="error in input.errors">{{ error }}</li>
+            </ul>
+        </p>
+
+
+        <div class="form-inputs">
+            <label for="name">Full name</label>
+            <input type="text" id="username" name="username" v-model="input.fullname" placeholder="Name"
+            value="Alex Deo"  />
+        </div>
+        <div class="form-inputs">
+            <label for="name">Email</label>
+            <input type="email" id="email" name="email" v-model="input.email" placeholder="Email"
+            value="info@xyz.com"  />
+        </div>
+         <div class="form-inputs">
+            <label for="name">Age</label>
+            <input type="number" id="age" name="age" v-model="input.age" placeholder="Age"
+            value="22"  />
+        </div>
+         <div class="form-inputs">
+            <label for="name">Gender</label>
+             <select
+                    id="gender"
+                    v-model="input.gender"
+                    name="gender"
+                    >
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+        </div>
+        <button type="submit" >Submit</button>
+    </form>
+</template>
+
+<script>
+export default {
+  name: 'form_validation',
+  data() {
+        return {
+            input: {
+                errors: [],
+                fullname: null,
+                email: null,
+                age: null,
+                gender: null
+            }
+        }
+    },
+    methods: {
+        checkForm: function (e) {
+            if (this.input.fullname && this.input.email && this.input.age && this.input.gender ) {
+                return true;
+            }
+
+            this.input.errors = [];
+
+            if (!this.input.fullname) {
+                this.input.errors.push('Full name required.');
+            }
+            if (!this.input.email) {
+                this.input.errors.push('Email required.');
+            }
+            if (!this.input.age) {
+                this.input.errors.push('Age required.');
+            }
+            if (!this.input.gender) {
+                this.input.errors.push('Gender required.');
+            }
+
+            e.preventDefault();
+        }
+    }
+}
+</script>
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Custom Form Validation
+
+```js
+<template>
+
+    <form
+        id="app"
+        @change="checkForm"
+        action="https://vuejs.org/"
+        method="post"
+        novalidate="true"
+        >
+
+        <p v-if="inputs.errors.length">
+            <b>Please correct the following error(s):</b>
+            <ul>
+              <li v-for="error in inputs.errors">{{ error }}</li>
+            </ul>
+        </p>
+
+        <div class="form-inputs">
+            <input v-model.number="inputs.coffee" type="number" name="coffee"> Coffee <br/>
+            <input v-model.number="inputs.water" type="number" name="water"> Water <br/>
+            <input v-model.number="inputs.burger" type="number" name="burger"> Burger <br/>
+        </div>
+
+        <p>
+            Current Total: {{total}}
+        </p>
+
+        <p>
+            <input type="submit" value="Submit">
+        </p>
+
+    </form>
+
+</template>
+
+<script>
+export default {
+  name: 'custom_validation',
+  data() {
+        return {
+            inputs: {
+                errors: [],
+                coffee: null,
+                water: null,
+                burger: null, 
+            }
+        }
+    },
+    computed: {
+        total: function () {
+        // must parse because Vue turns empty value to string
+        return  Number(this.inputs.coffee) +
+                Number(this.inputs.water+this.inputs.burger);
+        }
+    },
+    methods:{
+        checkForm: function (e) {
+        this.inputs.errors = [];
+
+        if (this.total <= 100) {
+            this.inputs.errors.push('Total must greater than 100!');
+        } 
+        
+        if (this.total >= 100) {
+           this.inputs.errors.push('GOOD!');
+        }
+
+        if (!this.inputs.errors.length) {
+            return true;
+        }
+
+        e.preventDefault();
+        }
+  }
+}
+</script>
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Interpolations
+
+###  v-once directive
+You can also perform one-time interpolations that do not update on data change by using the ```v-once`` directive,
+but keep in mind this will also affect any other bindings on the same node:
+
+```js
+ <div v-once>This will never change: {{ inputtext }}</div>
+```
