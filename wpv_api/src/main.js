@@ -5,8 +5,9 @@ import axios from "axios";
 import router from "./router"
 
 
-// Agregamos la URL base de nuestra API
-axios.defaults.baseURL = 'http://localhost:80/nombre-proyecto/';
+// Default Base URL
+// http://localhost/projects/wordpress_api
+axios.defaults.baseURL = 'http://localhost/projects/wordpress/wpv/';
 
 
 //createApp(App).use( router, VueAxios, axios).mount("#app");
