@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="postHolder">
   <table :class="elevation-1">
     <tr 
       v-for="p in posts" 
@@ -99,6 +99,9 @@ import axios from 'axios';
                     this.posts.push(item);
                 });
             } catch (error) {
+              
+              document.getElementById("postHolder").innerHTML = "Please check your SQL is runing?"
+              
               console.log(error);
             }
 

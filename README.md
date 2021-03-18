@@ -195,7 +195,7 @@ export default {
 
 
 
-## Vue-CLI
+## 1: Vue-CLI
 
 ```npm install -g vue-cli```
 Note: ```-g``` refer to global
@@ -242,18 +242,7 @@ Now open in ```http://localhost:8080``` on browser.
 
 
 
-
-
-
-
-
-
-
-
-
-## How to disable eslint on vue-cli ?
-Add this line top of your script where you want ignore eslint
-```/* eslint-disable */```
+## 2 : Project Understanding
 
 
 
@@ -270,7 +259,8 @@ Add this line top of your script where you want ignore eslint
 
 
 
-## Declarative Rendering
+
+## 3 : Declarative Rendering
 
 ### v-bind:title
 
@@ -292,6 +282,9 @@ export default {
 
 
 
+## 3.1 How to disable eslint on vue-cli ?
+Add this line top of your script where you want ignore eslint
+```/* eslint-disable */```
 
 
 
@@ -308,7 +301,9 @@ export default {
 
 
 
-### Loops
+
+
+## 4 : Loops
 
 ```js
 <table>
@@ -350,45 +345,7 @@ export default {
 
 
 
-
-
-
-
-## if else condition
-
-```js
-<template>
-
-  <div class="main">
-    <div v-if="name">
-      <span v-text="name"> -> Condition True</span>
-    </div>
-    <div v-else>
-      Name not founded - > Condition False
-    </div>
-  </div>
-
-</template>
-
-<script>
-export default {
-  name: 'Home',
-  data () {
-    return {
-      name: "Amoos",
-      msg: 'Welcome to WebApp'
-    }
-  }
-}
-</script>
-```
-
-
-
-
-
-
-## Loops and push data in loop
+## 5 : Loops and push data in loop
 
 ```js
 <script>
@@ -423,10 +380,58 @@ export default {
 
 
 
-## v-model
+
+
+
+
+
+
+
+
+## 6 : if else condition
+
+```js
+<template>
+
+  <div class="main">
+    <div v-if="name">
+      <span v-text="name"> -> Condition True</span>
+    </div>
+    <div v-else>
+      Name not founded - > Condition False
+    </div>
+  </div>
+
+</template>
+
+<script>
+export default {
+  name: 'Home',
+  data () {
+    return {
+      name: "Amoos",
+      msg: 'Welcome to WebApp'
+    }
+  }
+}
+</script>
+```
+
+
+
+
+
+
+
+
+
+
+
+
+## 7 : Handling User Input. v-model
 The v-model directive that makes two-way binding between form input and app.
 
-
+### Option 1
 ```js
 <div id="app">
   <p>{{ inputtext }}</p>
@@ -441,6 +446,32 @@ export default {
   data () {
     return {
       inputtext: 'Change my text',
+    }
+  }
+}
+```
+
+```js
+<div id="app">
+  <p>{{ inputtext }}</p>
+  <button v-on:click="reverseMessage">Reverse Message</button>
+</div>
+
+
+// home.vue
+export default {
+  name: 'Home',
+  data () {
+    return {
+      inputtext: 'Change my text',
+    }
+  },
+  methods: {
+    reverseMessage() {
+      this.message = this.message
+        .split('')
+        .reverse()
+        .join('')
     }
   }
 }

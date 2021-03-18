@@ -8,8 +8,8 @@
   </div>
 </template>
 
-<script> 
 
+<script>
 export default {
   name: "App",
   data() {
@@ -24,10 +24,9 @@ export default {
     //router.push( )
     //router.push({ path: 'contact', query: { s: '123' }})
   },
-  components: { 
+  components: {
 
   },
 };
 </script>
  
-
