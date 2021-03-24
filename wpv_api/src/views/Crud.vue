@@ -1,6 +1,6 @@
 <template>
   <div id="postHolder">
-  <table :class="elevation-1">
+  <table :class="elevation">
     <tr 
       v-for="p in posts" 
       :key="p.id"
@@ -9,15 +9,38 @@
       <td> <a :href=' p.slug '> {{p.title}} </a> </td>
       <td>
         
-      <button @click="deletePost(p)">
-        mdi-delete
+      <button @click="deletePost(p.id)">
+        mdi-delete {{p.id}}
       </button>
+
+      <button @click="editPost(p.id)">E {{p.id}}</button>
 
       </td>
 
     </tr>
   </table> 
     <button color="primary" @click="initialize">Reset</button>
+
+
+
+    <hr>
+
+  <div class="from">
+    <span class="headline">{{ formTitle }}</span>
+    <input type="text" v-model="editedItem.title" label="title" />
+    <input type="text" v-model="editedItem.content" label="content" />
+
+    <hr/>
+
+    <button @click="close">Cancel</button>
+    <button @click="save">Save</button>
+  </div>
+
+
+  
+
+
+
   </div>
 </template>
 
@@ -84,6 +107,18 @@ import axios from 'axios';
       async initialize () {
         console.log("initialize... optional function")
       },
+
+      limpiar(value){
+        return value.replace(/<\/?[^>]+(>|$)/g, "")
+      },
+
+      editPost (item) {
+        this.editedIndex = this.posts.indexOf(item)
+        this.editedItem = Object.assign({}, item)
+        this.dialog = true
+      },
+
+
       async getPosts() {
           try {
                 const entradasDB = await axios.get('wp-json/wp/v2/posts');
@@ -121,17 +156,26 @@ import axios from 'axios';
         //    return dd;
         */
       },
-       async deletePost (item) {
+
+      async deletePost(item) {
+        
         const index = this.posts.indexOf(item)
-        const respuesta = confirm('Are you sure you want to delete this item?') && this.posts.splice(index, 1)
-        if(respuesta){
+        console.log(item + " ~ " + index )
+
+        const respuesta = confirm('Are you sure you want to delete this item?') && this.posts.splice(1, 1)
+        
+        console.log(respuesta)
+
+        if(respuesta){ 
             try {
-                await this.axios.delete(`wp-json/wp/v2/posts/${item.id}`, this.config)
+                await this.axios.delete('wp-json/wp/v2/posts/'+item, this.config)
             } catch (error) {
                 console.log(error);
             }
         }
       }
+      
+
       
     },
   }
