@@ -24,15 +24,19 @@
 
     <hr>
 
-  <div class="from">
+  <div class="from" >
     <span class="headline">{{ formTitle }}</span>
-    <input type="text" v-model="editedItem.title" label="title" />
-    <input type="text" v-model="editedItem.content" label="content" />
+    <input type="text" v-model="defaultItem.title" label="title" />
+    <input type="text" v-model="defaultItem.content" label="content" />
+    <select type="text" v-model="defaultItem.status">
+      <option value="publish" selected>Publish</option>
+      <option value="draft">Draft</option>
+    </select>
 
     <hr/>
 
     <button @click="close">Cancel</button>
-    <button @click="save">Save</button>
+    <button @click="addPost()">Add Post</button>
   </div>
 
 
@@ -73,10 +77,10 @@ import axios from 'axios';
       },
       defaultItem: {
         title: '',
-        id: 0,
+        //id: 0,
         content: '',
         date: 0,
-        status: 0,
+        status: 0
       },
       
       config:{
@@ -163,7 +167,6 @@ import axios from 'axios';
 
 
 
-
       async deletePost(result, id) {
 
         const index = this.posts.indexOf(result)
@@ -186,9 +189,27 @@ import axios from 'axios';
 
         }
       },
+
+      async addPost() {
+        //await axios.post(`wp/v2/posts/${487}`).then(console.log("course"));
+        //Would like to use the button to do this:
+        
+          await axios.post('wp/v2/posts', {
+            title: this.defaultItem.title,
+            content: this.defaultItem.content,
+            status: this.defaultItem.status
+            
+          }, this.config )
+          .then(response => {
+            console.log(response)
+          })
+          .catch(err => {
+            console.log(err)
+          })
+        
+      }
       
-
-
+      
 
     },
   }
