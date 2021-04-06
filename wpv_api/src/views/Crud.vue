@@ -1,6 +1,6 @@
 <template>
   <div id="postHolder">
-  <table :class="elevation">
+  <table class="elevation">
     <tr 
       v-for="p in posts" 
       :key="p.id"
@@ -9,18 +9,17 @@
       <td> <a :href=' p.slug '> {{p.title}} </a> </td>
       <td>
         
-      <button @click="deletePost(p.id)">
+      <button @click="deletePost(p, p.id)">
         mdi-delete {{p.id}}
       </button>
 
-      <button @click="editPost(p.id)">E {{p.id}}</button>
+      <button @click="editPost(p)">E {{p.id}}</button>
 
       </td>
 
     </tr>
   </table> 
     <button color="primary" @click="initialize">Reset</button>
-
 
 
     <hr>
@@ -79,9 +78,10 @@ import axios from 'axios';
         date: 0,
         status: 0,
       },
+      
       config:{
         headers: {
-          Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL3dvcmRwcmVzcy1hcGlcL3dvcmRwcmVzcy0xXC93b3JkcHJlc3MiLCJpYXQiOjE1NzIyNzQ4NzgsIm5iZiI6MTU3MjI3NDg3OCwiZXhwIjoxNTcyODc5Njc4LCJkYXRhIjp7InVzZXIiOnsiaWQiOiIxIn19fQ.7eG3MIBl6ITJ26xEfNJDpnwykdpiNXoxaP_zC-9qhxk'
+          'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL3Byb2plY3RzXC93b3JkcHJlc3NcL3dwdiIsImlhdCI6MTYxNzM3NjgwMywibmJmIjoxNjE3Mzc2ODAzLCJleHAiOjE2MTc5ODE2MDMsImRhdGEiOnsidXNlciI6eyJpZCI6IjEifX19.LNwTaITzTsQ2KPDdei8LQFKPMwbFpKLvWh7GESWPyHs'
         }
       }
     }),
@@ -121,7 +121,7 @@ import axios from 'axios';
 
       async getPosts() {
           try {
-                const entradasDB = await axios.get('wp-json/wp/v2/posts');
+                const entradasDB = await axios.get('wp/v2/posts');
                 console.log(entradasDB)
                 await entradasDB.data.forEach(element => {
                     const item = {}
@@ -157,26 +157,39 @@ import axios from 'axios';
         */
       },
 
-      async deletePost(item) {
-        
-        const index = this.posts.indexOf(item)
-        console.log(item + " ~ " + index )
+  
+  
 
-        const respuesta = confirm('Are you sure you want to delete this item?') && this.posts.splice(1, 1)
-        
-        console.log(respuesta)
 
-        if(respuesta){ 
-            try {
-                await this.axios.delete('wp-json/wp/v2/posts/'+item, this.config)
-            } catch (error) {
-                console.log(error);
-            }
+
+
+
+      async deletePost(result, id) {
+
+        const index = this.posts.indexOf(result)
+        
+        console.log(result)
+        console.log(index)
+
+        const deleteConfirm = confirm('Are you sure you want to delete this item?') && this.posts.splice(index, 1)
+        
+        if(deleteConfirm){ 
+          try {
+            await axios.delete('wp/v2/posts/'+id, this.config )         
+                .then(response => {
+                console.log(this.result);
+                console.log(response)
+              })
+          } catch (err) {
+            console.log(err)
+          }
+
         }
-      }
+      },
       
 
-      
+
+
     },
   }
 </script>

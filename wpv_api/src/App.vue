@@ -1,9 +1,10 @@
 <template>
   <div id="app"> 
-    <a href='./home'>Home</a>
-    <a href='./about'>About</a>
-    <a href='./crud'>Crud</a>
-    
+    <nav>
+      <a href='./home'>Home</a>
+      <a href='./about'>About</a>
+      <a href='./crud'>Crud</a>
+    </nav>
     <router-view />
   </div>
 </template>

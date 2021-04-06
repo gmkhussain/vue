@@ -7,7 +7,8 @@ import router from "./router"
 
 // Default Base URL
 // http://localhost/projects/wordpress_api
-axios.defaults.baseURL = 'http://localhost/projects/wordpress/wpv/';
+
+axios.defaults.baseURL = 'http://localhost/projects/wordpress/wpv/wp-json/';
 
 
 //createApp(App).use( router, VueAxios, axios).mount("#app");
