@@ -1,6 +1,6 @@
 <template>
   <div id="postHolder">
-  <table class="elevation">
+  <table class="table">
     <tr 
       v-for="p in posts" 
       :key="p.id"
@@ -10,10 +10,10 @@
       <td>
         
       <button @click="deletePost(p, p.id)">
-        mdi-delete {{p.id}}
+        X
       </button>
 
-      <button @click="editPost(p)">E {{p.id}}</button>
+      <button @click="editPost(p)">E</button>
 
       </td>
 
@@ -28,11 +28,12 @@
     <span class="headline">{{ formTitle }}</span>
     <input type="text" v-model="defaultItem.title" label="title" />
     <input type="text" v-model="defaultItem.content" label="content" />
-    <select type="text" v-model="defaultItem.status">
-      <option value="publish" selected>Publish</option>
+
+    <select v-model="defaultItem.status" :required="true" label="status">
+      <option value="publish" :selected="true">Publish</option>
       <option value="draft">Draft</option>
     </select>
-
+    
     <hr/>
 
     <button @click="close">Cancel</button>
@@ -112,7 +113,7 @@ import axios from 'axios';
         console.log("initialize... optional function")
       },
 
-      limpiar(value){
+      cleanStringFunc(value){
         return value.replace(/<\/?[^>]+(>|$)/g, "")
       },
 
@@ -130,10 +131,10 @@ import axios from 'axios';
                 await entradasDB.data.forEach(element => {
                     const item = {}
                     item.id = element.id;
-                    // item.title = element.title.rendered;
-                    // item.content = this.limpiar(element.content.rendered);
+                    item.title = element.title.rendered;
+                    item.content = this.cleanStringFunc(element.content.rendered);
                     // item.date = element.date;
-                    // item.status = element.status;
+                    item.status = element.status;
                     
                     this.posts.push(item);
                 });
@@ -206,11 +207,31 @@ import axios from 'axios';
           .catch(err => {
             console.log(err)
           })
-        
+
       }
-      
       
 
     },
   }
 </script>
+
+
+<style scoped>
+
+table.table tr td {
+    border: 1px solid #ddd;
+    padding: 2px 6px;
+}
+
+button {    cursor: pointer; }
+.table button {
+    margin: 0 0 0px 0px;
+    border: 0;
+    cursor: pointer; 
+}
+
+.table button + button {
+      margin-left: 5px;
+  }
+
+</style>
