@@ -9,10 +9,7 @@
       <td> <a :href=' p.slug '> {{p.title}} </a> </td>
       <td>
         
-      <button @click="deletePost(p, p.id)">
-        X
-      </button>
-
+      <button @click="deletePost(p, p.id)">X</button>
       <button @click="editPost(p)">E</button>
 
       </td>
@@ -42,6 +39,24 @@
 
 
   
+
+
+
+    <div class="from" >
+      <h4 class="headline">Edit</h4>
+      <input type="text" v-model="editedItem.title" label="title" />
+      <input type="text" v-model="editedItem.content" label="content" />
+
+      <select v-model="editedItem.status" :required="true" label="status">
+        <option value="publish" :selected="true">Publish</option>
+        <option value="draft">Draft</option>
+      </select>
+      
+      <hr/>
+
+      <button @click="close">Cancel</button>
+      <button @click="savePost(editedItem)">Save Post {{editedItem.id}}</button>
+    </div>
 
 
 
@@ -86,7 +101,7 @@ import axios from 'axios';
       
       config:{
         headers: {
-          'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL3Byb2plY3RzXC93b3JkcHJlc3NcL3dwdiIsImlhdCI6MTYxNzM3NjgwMywibmJmIjoxNjE3Mzc2ODAzLCJleHAiOjE2MTc5ODE2MDMsImRhdGEiOnsidXNlciI6eyJpZCI6IjEifX19.LNwTaITzTsQ2KPDdei8LQFKPMwbFpKLvWh7GESWPyHs'
+          'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL3Byb2plY3RzXC93b3JkcHJlc3NcL3dwdiIsImlhdCI6MTYxNzc4NjgxMSwibmJmIjoxNjE3Nzg2ODExLCJleHAiOjE2MTgzOTE2MTEsImRhdGEiOnsidXNlciI6eyJpZCI6IjEifX19.Jlwe_8_HaijtFGGxRSqvwWsIj8Woxku0nFNdgX1ZK5U'
         }
       }
     }),
@@ -118,9 +133,20 @@ import axios from 'axios';
       },
 
       editPost (item) {
+        console.log(item);
         this.editedIndex = this.posts.indexOf(item)
         this.editedItem = Object.assign({}, item)
-        this.dialog = true
+       // this.dialog = true
+      },
+
+      async savePost(editedItem) {
+        await axios.put(`wp/v2/posts/${editedItem.id}`, 
+            { 
+              title: editedItem.title, 
+              content: editedItem.content
+            }, 
+            this.config
+          );
       },
 
 
@@ -193,8 +219,7 @@ import axios from 'axios';
 
       async addPost() {
         //await axios.post(`wp/v2/posts/${487}`).then(console.log("course"));
-        //Would like to use the button to do this:
-        
+        //Would like to use the button to do this:        
           await axios.post('wp/v2/posts', {
             title: this.defaultItem.title,
             content: this.defaultItem.content,
@@ -207,8 +232,8 @@ import axios from 'axios';
           .catch(err => {
             console.log(err)
           })
-
       }
+
       
 
     },
