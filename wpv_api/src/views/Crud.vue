@@ -1,34 +1,38 @@
 <template>
-  <div id="postHolder">
-  <table class="table">
-    <tr 
-      v-for="p in posts" 
-      :key="p.id"
-    >
-      <td>{{p.id}}</td>
-      <td> <a :href=' p.slug '> {{p.title}} </a> </td>
-      <td>
-        
-      <button @click="deletePost(p, p.id)">X</button>
-      <button @click="editPost(p)">E</button>
+  <div id="postHolder" class="o5a">
+    <table class="table">
+      <tr 
+        v-for="p in posts" 
+        :key="p.id"
+      >
+        <td>{{p.id}}</td>
+        <td> <a :href='p.slug'> {{p.title}} </a> </td>
+        <td>
+          {{p.status}}
+        </td>
+        <td>
+          <button @click="deletePost(p, p.id)">X</button>
+          <button @click="editPost(p)">E</button>
+        </td>
 
-      </td>
+      </tr>
+    </table> 
 
-    </tr>
-  </table> 
+    
     <button color="primary" @click="initialize">Reset</button>
 
 
     <hr>
 
   <div class="from" >
-    <span class="headline">{{ formTitle }}</span>
+    <h4 class="headline">Add</h4>
     <input type="text" v-model="defaultItem.title" label="title" />
     <input type="text" v-model="defaultItem.content" label="content" />
-
-    <select v-model="defaultItem.status" :required="true" label="status">
-      <option value="publish" :selected="true">Publish</option>
-      <option value="draft">Draft</option>
+ 
+    <select v-model="defaultItem.status.selectedValue">
+        <option v-for="x in defaultItem.status.valuesList" :key="x" :value="x">
+            {{x}}
+        </option>
     </select>
     
     <hr/>
@@ -46,10 +50,11 @@
       <h4 class="headline">Edit</h4>
       <input type="text" v-model="editedItem.title" label="title" />
       <input type="text" v-model="editedItem.content" label="content" />
-
-      <select v-model="editedItem.status" :required="true" label="status">
-        <option value="publish" :selected="true">Publish</option>
-        <option value="draft">Draft</option>
+ 
+      <select v-model="editedItem.status.selectedValue">
+        <option v-for="x in editedItem.status.valuesList" :key="x" :value="x">
+            {{x}}
+        </option>
       </select>
       
       <hr/>
@@ -89,14 +94,20 @@ import axios from 'axios';
         id: 0,
         content: '',
         date: 0,
-        status: 0,
+        status: {
+           selectedValue: 'draft',
+           valuesList: ['draft', 'publish']
+        }
       },
       defaultItem: {
         title: '',
         //id: 0,
         content: '',
         date: 0,
-        status: 0
+        status: {
+           selectedValue: 'publish',
+           valuesList: ['draft', 'publish']
+        }
       },
       
       config:{
@@ -146,7 +157,7 @@ import axios from 'axios';
               content: editedItem.content
             }, 
             this.config
-          );
+          ).then( res => { console.log( "saved", {res});  });
       },
 
 
@@ -205,11 +216,13 @@ import axios from 'axios';
         
         if(deleteConfirm){ 
           try {
+            
             await axios.delete('wp/v2/posts/'+id, this.config )         
                 .then(response => {
-                console.log(this.result);
-                console.log(response)
-              })
+                  console.log(this.result);
+                  console.log(response)
+              });
+
           } catch (err) {
             console.log(err)
           }
@@ -218,17 +231,18 @@ import axios from 'axios';
       },
 
       async addPost() {
+        //this.posts = [];
         //await axios.post(`wp/v2/posts/${487}`).then(console.log("course"));
         //Would like to use the button to do this:        
           await axios.post('wp/v2/posts', {
-            title: this.defaultItem.title,
-            content: this.defaultItem.content,
-            status: this.defaultItem.status
-            
+              title: this.defaultItem.title,
+              content: this.defaultItem.content,
+              status: this.defaultItem.status.selectedValue
           }, this.config )
           .then(response => {
             console.log(response)
-          })
+            this.posts.unshift(response.data) // Add new record on top of list.
+          }) 
           .catch(err => {
             console.log(err)
           })
@@ -242,6 +256,8 @@ import axios from 'axios';
 
 
 <style scoped>
+
+.o5 { opacity: 0.5;}
 
 table.table tr td {
     border: 1px solid #ddd;
