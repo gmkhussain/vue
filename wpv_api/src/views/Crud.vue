@@ -14,7 +14,6 @@
           <button @click="deletePost(p, p.id)">X</button>
           <button @click="editPost(p)">E</button>
         </td>
-
       </tr>
     </table> 
 
@@ -41,8 +40,6 @@
     <button @click="addPost()">Add Post</button>
   </div>
 
-
-  
 
 
 
@@ -73,6 +70,7 @@ import axios from 'axios';
 
   export default {
     data: () => ({
+      
       dialog: false,
       headers: [
         {
@@ -112,7 +110,7 @@ import axios from 'axios';
       
       config:{
         headers: {
-          'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL3Byb2plY3RzXC93b3JkcHJlc3NcL3dwdiIsImlhdCI6MTYxNzc4NjgxMSwibmJmIjoxNjE3Nzg2ODExLCJleHAiOjE2MTgzOTE2MTEsImRhdGEiOnsidXNlciI6eyJpZCI6IjEifX19.Jlwe_8_HaijtFGGxRSqvwWsIj8Woxku0nFNdgX1ZK5U'
+          'Authorization': 'Bearer ' + localStorage.getItem("token")
         }
       }
     }),
@@ -261,7 +259,8 @@ import axios from 'axios';
 
 table.table tr td {
     border: 1px solid #ddd;
-    padding: 2px 6px;
+    padding: 2px 4px;
+    font-size: 12px;
 }
 
 button {    cursor: pointer; }
