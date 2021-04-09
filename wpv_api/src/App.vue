@@ -1,11 +1,12 @@
 <template>
   <div id="app"> 
     <nav>
-      <a href='./auth'>Auth</a>
+      <a href='/auth'>Auth</a>
       <label> :: </label>
-      <a href='./home'>Home</a>
-      <a href='./about'>About</a>
-      <a href='./crud'>Crud</a>
+      <a href='/home'>Home</a>
+      <a href='/about'>About</a>
+      <a href='/blog'>Blog</a>
+      <a href='/crud'>Crud</a>
     </nav>
     <router-view />
   </div>

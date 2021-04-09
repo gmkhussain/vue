@@ -179,22 +179,7 @@ import axios from 'axios';
               
               console.log(error);
             }
-
-          /*
-          let uri = '/wp-json/wp/v2/posts'; // Base URL Defined in `main.js`
-          axios.get(uri).then((response) => {
-            //console.log(response.data[0].date);
-            return response;
-
-          }).then(
-              (data) => {
-                
-                this.posts = data.data;
-                console.log( this.posts )
-              }
-          );
-        //    return dd;
-        */
+            
       },
 
   
