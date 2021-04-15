@@ -1,4 +1,6 @@
 <template>
+
+
   <div id="postHolder" class="o5a">
     <table class="table">
       <tr 
@@ -63,6 +65,10 @@
 
 
   </div>
+
+  <div v-if="loading" id="loader"> Loading... </div>
+  <div v-else> Else </div>
+  
 </template>
 
 <script>
@@ -72,6 +78,7 @@ import axios from 'axios';
     data: () => ({
       
       dialog: false,
+      loading: false,
       headers: [
         {
           text: 'Dessert (100g serving)',
@@ -149,19 +156,27 @@ import axios from 'axios';
       },
 
       async savePost(editedItem) {
+        
+        console.log("saving..." + this.loading)
+
+        this.loading = true
+
         await axios.put(`wp/v2/posts/${editedItem.id}`, 
-            { 
-              title: editedItem.title, 
-              content: editedItem.content
-            }, 
+          { 
+            title: editedItem.title, 
+            content: editedItem.content
+          }, 
             this.config
-          ).then( res => { console.log( "saved", {res});  });
+        ).then( res => {
+          console.log( "saved" + this.loading, {res});
+          this.loading = false
+        });
       },
 
 
       async getPosts() {
           try {
-                const entradasDB = await axios.get('wp/v2/posts');
+                const entradasDB = await axios.get('wp/v2/posts', { timeout: 30000 } );
                 console.log(entradasDB)
                 await entradasDB.data.forEach(element => {
                     const item = {}
@@ -183,9 +198,6 @@ import axios from 'axios';
       },
 
   
-  
-
-
 
 
       async deletePost(result, id) {
@@ -231,7 +243,7 @@ import axios from 'axios';
           })
       }
 
-      
+
 
     },
   }
@@ -258,5 +270,20 @@ button {    cursor: pointer; }
 .table button + button {
       margin-left: 5px;
   }
+
+.show { display: block !important; }
+ div#loader {
+    background: #00509496;
+    position: fixed;
+    top: auto;
+    left: 2%;
+    right: 2%;
+    bottom: 2%;
+    padding: 15px 20px;
+    color: #fff;
+    border-radius: 8px;
+    display: inline-block;
+    margin: 10px 0; 
+}
 
 </style>

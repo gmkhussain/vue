@@ -49,8 +49,8 @@ import axios from 'axios';
               
                 const   post = {}
                         post.id = postData.data.id;
-                        post.title = postData.data.title;
-                        post.content = postData.data.content;
+                        post.title = postData.data.title.rendered;
+                        post.content = postData.data.content.rendered;
                         post.status = postData.data.status;
                     
                                  

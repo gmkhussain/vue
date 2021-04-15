@@ -24,8 +24,8 @@ export default {
   data () {
     return {
       name: "Auth Page",
-      username: '',
-      password: ''
+      username: 'admin',
+      password: 'admin123'
     }
   },
   methods: {  

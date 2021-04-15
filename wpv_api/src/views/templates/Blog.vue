@@ -5,7 +5,7 @@
       <tr 
         v-for="p in posts" 
         :key="p.id"
-      >
+        >
         <td>{{p.id}}</td>
         <td>
             <a :href="'./blog/'+p.id">{{p.title}}</a>
