@@ -260,7 +260,7 @@ table.table tr td {
     font-size: 12px;
 }
 
-button {    cursor: pointer; }
+button { cursor: pointer; }
 .table button {
     margin: 0 0 0px 0px;
     border: 0;
@@ -272,7 +272,7 @@ button {    cursor: pointer; }
   }
 
 .show { display: block !important; }
- div#loader {
+div#loader {
     background: #00509496;
     position: fixed;
     top: auto;
