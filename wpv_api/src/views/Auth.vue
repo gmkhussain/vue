@@ -1,9 +1,11 @@
 <template>
     <div class="auth">
       {{name}}
-      <div v-if="login_status">{{login_status}}</div>
       
-      <form action="" v-if="login_status!=true">
+      {{login_status}}
+      <div v-if="login_status=false">{{login_status}}</div>
+      
+      <form action="">
           <div class="form-group">
             <input type="text" v-model="username" class="form-control" />
           </div>
@@ -11,12 +13,14 @@
             <input type="text" v-model="password" class="form-control" />
           </div>
           <hr/>
+          <p><small>
           {{username}}
           {{password}}
-          <button @click="getToken()">Token</button>
+          </small></p>
+          <button @click="getToken()">Login</button>
       </form>
       
-      <div @click="logout()" v-if="login_status=true">Logout</div>
+      <button @click="logout()" v-if="login_status=true">Logout</button>
 
     </div>
 </template>
@@ -29,16 +33,20 @@ export default {
   data () {
     return {
       name: "Auth Page",
-      login_status: '',
+      token_status: false,
+      login_status: false,
       username: 'admin',
       password: 'admin123'
     }
   },
   methods: {  
 
-    logout() {
-      console.log("Logout...")
-      localStorage.setItem("token", 'LOGOUT')
+    logout1() {
+      console.log("Logout..."+ localStorage.getItem("token"))
+      localStorage.removeItem("token")
+      this.login_status=false;
+      this.login_token=false;
+      console.log(this.login_status)
     },
 
     async getToken() {
@@ -51,16 +59,16 @@ export default {
             
             localStorage.setItem("token", response.data.token)
             console.log(response.data.token)
-            this.login_status = true
+            this.token_status = true
 
           }) 
           .catch(err => {
             console.log("Error")
-            this.login_status = "Login failed please enter correct Username and Password"
+            this.token_status = "Login failed please enter correct Username and Password"
             console.log(err)
           })
       }
-      
+
   }
 }
 </script>
