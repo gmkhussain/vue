@@ -3,7 +3,7 @@
       {{name}}
       
       {{login_status}}
-      <div v-if="login_status=false">{{login_status}}</div>
+      <div>{{login_status}}</div>
       
       <form action="">
           <div class="form-group">
@@ -20,7 +20,7 @@
           <button @click="getToken()">Login</button>
       </form>
       
-      <button @click="logout()" v-if="login_status=true">Logout</button>
+      <button @click="logout()" >Logout</button>
 
     </div>
 </template>
@@ -41,15 +41,18 @@ export default {
   },
   methods: {  
 
-    logout1() {
+    logout() {
+      
       console.log("Logout..."+ localStorage.getItem("token"))
       localStorage.removeItem("token")
-      this.login_status=false;
-      this.login_token=false;
+      this.login_status = false
+      this.login_token = false
       console.log(this.login_status)
     },
 
     async getToken() {
+
+          
 
           await axios.post('/jwt-auth/v1/token', {
               username: this.username,
