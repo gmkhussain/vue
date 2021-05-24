@@ -1,6 +1,11 @@
 <template>
-
-  <E15vMethod />
+  <E21vModifiers />
+  <!-- E20 -->
+  <E19vForm />
+  <!--E18 see E17-->
+  <E17vEvents />
+  <E16vMethod />
+  <!--E15 see E14-->
   <E14vLoopConditional />
   <E13vLoop />
   <E12vShow />
@@ -17,7 +22,11 @@ import E11vIf from './components/E11vIf.vue'
 import E12vShow from './components/E12vShow.vue'
 import E13vLoop from './components/E13vLoop.vue'
 import E14vLoopConditional from './components/E14vLoopConditional.vue'
-import E15vMethod from './components/E15vMethod.vue'
+import E16vMethod from './components/E16vMethod.vue'
+import E17vEvents from './components/E17vEvents.vue'
+import E19vForm from './components/E19vForm.vue'
+import E21vModifiers from './components/E21vModifiers.vue'
+
 
 export default {
   name: 'App',
@@ -28,7 +37,10 @@ export default {
     E12vShow,
     E13vLoop,
     E14vLoopConditional,
-    E15vMethod
+    E16vMethod,
+    E17vEvents,
+    E19vForm,
+    E21vModifiers
   }
 }
 </script>
