@@ -1,7 +1,7 @@
 <template>
+  <div>
     <h4>Modifiers</h4> 
     
-
     <pre>
         {{ JSON.stringify(formValues, null, 2) }}
     </pre>
@@ -24,7 +24,7 @@
         </div>
 
     </form>
-
+  </div>
 </template>
 
 <script>

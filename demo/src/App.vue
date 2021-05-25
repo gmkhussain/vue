@@ -1,18 +1,23 @@
 <template>
-  <E21vModifiers />
-  <!-- E20 -->
-  <E19vForm />
-  <!--E18 see E17-->
-  <E17vEvents />
-  <E16vMethod />
-  <!--E15 see E14-->
-  <E14vLoopConditional />
-  <E13vLoop />
-  <E12vShow />
-  <E11vIf />
-  <HelloWorld msg="Welcome to Your App"/>
-  <Home /> 
-
+  <div>
+    <E25vComputedAndvFor />
+    <E24vComputedvsMethod />
+    <E23vComputedProperty />
+    <E22vOnceAndPre />
+    <E21vModifiers />
+    <!-- E20 -->
+    <E19vForm />
+    <!--E18 see E17-->
+    <E17vEvents />
+    <E16vMethod />
+    <!--E15 see E14-->
+    <E14vLoopConditional />
+    <E13vLoop />
+    <E12vShow />
+    <E11vIf />
+    <HelloWorld msg="Welcome to Your App"/>
+    <Home />
+  </div>
 </template>
 
 <script>
@@ -26,6 +31,10 @@ import E16vMethod from './components/E16vMethod.vue'
 import E17vEvents from './components/E17vEvents.vue'
 import E19vForm from './components/E19vForm.vue'
 import E21vModifiers from './components/E21vModifiers.vue'
+import E22vOnceAndPre from './components/E22vOnceAndPre.vue'
+import E23vComputedProperty from './components/E23vComputedProperty.vue'
+import E24vComputedvsMethod from './components/E24vComputedvsMethod.vue'
+import E25vComputedAndvFor from './components/E25vComputedAndvFor.vue'
 
 
 export default {
@@ -40,7 +49,11 @@ export default {
     E16vMethod,
     E17vEvents,
     E19vForm,
-    E21vModifiers
+    E21vModifiers,
+    E22vOnceAndPre,
+    E23vComputedProperty,
+    E24vComputedvsMethod,
+    E25vComputedAndvFor
   }
 }
 </script>

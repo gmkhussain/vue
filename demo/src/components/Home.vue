@@ -1,7 +1,9 @@
 <template>
-    Hi, from home {{data}}
-    <div v-bind:style="[st1, st2]">/-/-/-/</div>
-    <button @click='clk("Amoos")'>A</button>
+    <div>
+        <div>Hi, from home {{data}}</div>
+        <div v-bind:style="[st1, st2]">/-/-/-/</div>
+        <button @click='clk("Amoos")'>A</button>
+    </div>
 </template>
 
 <script>
