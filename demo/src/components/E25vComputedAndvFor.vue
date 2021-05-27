@@ -10,8 +10,9 @@
         </div>
     </div>
 
-    <div v-for="x in expensiveItems(100)" :key="x">
-        {{x.price}}
+    <h4>expensiveItems</h4>
+    <div v-for="(x, index) in expensiveItems" :key="x.id">
+       <p>{{index}} | {{x.title}} | {{x.price}} </p>
     </div>
 
 
@@ -62,7 +63,7 @@ export default {
         },
         expensiveItems() {
             console.log("expensive")
-            return this.items.filter(function( item ) {  return item.price > 200; });
+            return this.items.filter( item => item.price > 200 );
         }
     }
 }

@@ -1,5 +1,11 @@
 <template>
   <div>
+    <E33ProvideAndInject />
+    <E32NonPropAttributes class="someClasses" id="myId" />
+    <E31PropTypesAndValidations name="Alex Deo" :age="4" :status="true" />
+    <!--E28 Components-->
+    <E27vWatchers />
+    <E26vComputedSetter />
     <E25vComputedAndvFor />
     <E24vComputedvsMethod />
     <E23vComputedProperty />
@@ -35,6 +41,11 @@ import E22vOnceAndPre from './components/E22vOnceAndPre.vue'
 import E23vComputedProperty from './components/E23vComputedProperty.vue'
 import E24vComputedvsMethod from './components/E24vComputedvsMethod.vue'
 import E25vComputedAndvFor from './components/E25vComputedAndvFor.vue'
+import E26vComputedSetter from './components/E26vComputedSetter.vue'
+import E27vWatchers from './components/E27vWatchers.vue'
+import E31PropTypesAndValidations from './components/E31PropTypesAndValidations'
+import E32NonPropAttributes from './components/E32NonPropAttributes'
+import E33ProvideAndInject from './components/E33ProvideAndInject'
 
 
 export default {
@@ -53,7 +64,12 @@ export default {
     E22vOnceAndPre,
     E23vComputedProperty,
     E24vComputedvsMethod,
-    E25vComputedAndvFor
+    E25vComputedAndvFor,
+    E26vComputedSetter,
+    E27vWatchers,
+    E31PropTypesAndValidations,
+    E32NonPropAttributes,
+    E33ProvideAndInject
   }
 }
 </script>
