@@ -1,5 +1,6 @@
 <template>
   <div>
+    <E34ComponentEvents />
     <E33ProvideAndInject />
     <E32NonPropAttributes class="someClasses" id="myId" />
     <E31PropTypesAndValidations name="Alex Deo" :age="4" :status="true" />
@@ -46,6 +47,7 @@ import E27vWatchers from './components/E27vWatchers.vue'
 import E31PropTypesAndValidations from './components/E31PropTypesAndValidations'
 import E32NonPropAttributes from './components/E32NonPropAttributes'
 import E33ProvideAndInject from './components/E33ProvideAndInject'
+import E34ComponentEvents from './components/E34ComponentEvents'
 
 
 export default {
@@ -69,7 +71,8 @@ export default {
     E27vWatchers,
     E31PropTypesAndValidations,
     E32NonPropAttributes,
-    E33ProvideAndInject
+    E33ProvideAndInject,
+    E34ComponentEvents
   }
 }
 </script>
