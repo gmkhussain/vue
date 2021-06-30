@@ -1,5 +1,8 @@
 <template>
   <div>
+    <E37Slots />
+    <E36ComponentsAndvModel />
+    <E35ValidatingEmittedEvents />
     <E34ComponentEvents />
     <E33ProvideAndInject />
     <E32NonPropAttributes class="someClasses" id="myId" />
@@ -48,7 +51,9 @@ import E31PropTypesAndValidations from './components/E31PropTypesAndValidations'
 import E32NonPropAttributes from './components/E32NonPropAttributes'
 import E33ProvideAndInject from './components/E33ProvideAndInject'
 import E34ComponentEvents from './components/E34ComponentEvents'
-
+import E35ValidatingEmittedEvents from './components/E35ValidatingEmittedEvents'
+import E36ComponentsAndvModel from './components/E36ComponentsAndvModel'
+import E37Slots from './components/E37Slots'
 
 export default {
   name: 'App',
@@ -72,7 +77,10 @@ export default {
     E31PropTypesAndValidations,
     E32NonPropAttributes,
     E33ProvideAndInject,
-    E34ComponentEvents
+    E34ComponentEvents,
+    E35ValidatingEmittedEvents,
+    E36ComponentsAndvModel,
+    E37Slots
   }
 }
 </script>
