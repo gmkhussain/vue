@@ -1,5 +1,8 @@
 <template>
   <div>
+    <E40ComponentStyles />
+    <E39SlotsProps />
+    <E38NamedSlots />
     <E37Slots />
     <E36ComponentsAndvModel />
     <E35ValidatingEmittedEvents />
@@ -54,6 +57,9 @@ import E34ComponentEvents from './components/E34ComponentEvents'
 import E35ValidatingEmittedEvents from './components/E35ValidatingEmittedEvents'
 import E36ComponentsAndvModel from './components/E36ComponentsAndvModel'
 import E37Slots from './components/E37Slots'
+import E38NamedSlots from './components/E38NamedSlots'
+import E39SlotsProps from './components/E39SlotsProps'
+import E40ComponentStyles from './components/E40ComponentStyles'
 
 export default {
   name: 'App',
@@ -80,7 +86,10 @@ export default {
     E34ComponentEvents,
     E35ValidatingEmittedEvents,
     E36ComponentsAndvModel,
-    E37Slots
+    E37Slots,
+    E38NamedSlots,
+    E39SlotsProps,
+    E40ComponentStyles
   }
 }
 </script>

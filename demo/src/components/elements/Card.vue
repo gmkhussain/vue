@@ -1,6 +1,8 @@
 <template>
     <div class="card">
-        <slot>Default content</slot>
+        <slot>
+          <p>Default content</p>
+        </slot>
     </div>
 </template>
 
@@ -13,7 +15,12 @@ export default {
 <style scoped>
 .card {
   border: 1px solid #777;
-  box-shadow: 0 0 4px 10px #744;
+  box-shadow: 0 0 4px 2px #397;
   margin: 15px 0;
+  max-width: 25%;
+  flex: 0 0 25%;  
+}
+p {
+  color: hotpink;
 }
 </style>

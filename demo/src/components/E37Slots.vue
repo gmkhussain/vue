@@ -3,7 +3,7 @@
       <h4>E37 Slots</h4>
       <Card></Card>
       <Card><h2>Some HTML Text</h2></Card>
-      <Card><img src="http://picsum.photos/200"></Card>
+      <Card><img src="http://picsum.photos/80"></Card>
   </div>
 </template>
 
