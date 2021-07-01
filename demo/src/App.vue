@@ -1,5 +1,8 @@
 <template>
   <div>
+    <E43TeleportComponent />
+    <E42KeepingDynamicComponentsAlive/>
+    <E41DynamicComponents />
     <E40ComponentStyles />
     <E39SlotsProps />
     <E38NamedSlots />
@@ -60,6 +63,9 @@ import E37Slots from './components/E37Slots'
 import E38NamedSlots from './components/E38NamedSlots'
 import E39SlotsProps from './components/E39SlotsProps'
 import E40ComponentStyles from './components/E40ComponentStyles'
+import E41DynamicComponents from './components/E41DynamicComponents/'
+import E42KeepingDynamicComponentsAlive from './components/E42KeepingDynamicComponentsAlive'
+import E43TeleportComponent from './components/E43TeleportComponent'
 
 export default {
   name: 'App',
@@ -89,7 +95,10 @@ export default {
     E37Slots,
     E38NamedSlots,
     E39SlotsProps,
-    E40ComponentStyles
+    E40ComponentStyles,
+    E41DynamicComponents,
+    E42KeepingDynamicComponentsAlive,
+    E43TeleportComponent    
   }
 }
 </script>
