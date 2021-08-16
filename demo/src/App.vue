@@ -1,6 +1,8 @@
 <template>
   <div>
-    <E43TeleportComponent />
+    <E45HttpGetRequest/>
+    <!--E44HTTPandVue--> npm install --save axois
+    <E43TeleportComponent /> <!--Vue3-->
     <E42KeepingDynamicComponentsAlive/>
     <E41DynamicComponents />
     <E40ComponentStyles />
@@ -37,6 +39,7 @@
 </template>
 
 <script>
+
 import HelloWorld from './components/HelloWorld.vue'
 import Home from './components/Home.vue'
 import E11vIf from './components/E11vIf.vue'
@@ -66,6 +69,7 @@ import E40ComponentStyles from './components/E40ComponentStyles'
 import E41DynamicComponents from './components/E41DynamicComponents/'
 import E42KeepingDynamicComponentsAlive from './components/E42KeepingDynamicComponentsAlive'
 import E43TeleportComponent from './components/E43TeleportComponent'
+import E45HttpGetRequest from './components/E45HttpGetRequest'
 
 export default {
   name: 'App',
@@ -98,7 +102,8 @@ export default {
     E40ComponentStyles,
     E41DynamicComponents,
     E42KeepingDynamicComponentsAlive,
-    E43TeleportComponent    
+    E43TeleportComponent,
+    E45HttpGetRequest  
   }
 }
 </script>

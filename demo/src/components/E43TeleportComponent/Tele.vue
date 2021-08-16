@@ -1,5 +1,5 @@
 <template>
-    <h4>Tele Element</h4>
+    <h4>Teleport Element is here</h4>
 </template>
 
 <script>
