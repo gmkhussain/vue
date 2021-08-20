@@ -1,11 +1,11 @@
 <template>
     <div>
-        <h4>E45 HttpGetRequest</h4>
+        <h4>E46 HttpPostRequest</h4>
         <div>{{title}}</div>
         <button v-on:click=getPosts>Get Post</button>
 
         <h4 v-if="errMsg">{{errMsg}}</h4>
-        
+
         <table border="1">
             <tr v-for="post in posts" :key="post.id">
                 <td> {{post.id}} </td>

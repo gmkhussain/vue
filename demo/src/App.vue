@@ -1,5 +1,7 @@
 <template>
   <div>
+    <E47LifeCycle />
+    <E46HttpPostRequest />
     <E45HttpGetRequest/>
     <!--E44HTTPandVue--> npm install --save axois
     <E43TeleportComponent /> <!--Vue3-->
@@ -70,6 +72,8 @@ import E41DynamicComponents from './components/E41DynamicComponents/'
 import E42KeepingDynamicComponentsAlive from './components/E42KeepingDynamicComponentsAlive'
 import E43TeleportComponent from './components/E43TeleportComponent'
 import E45HttpGetRequest from './components/E45HttpGetRequest'
+import E46HttpPostRequest from './components/E46HttpPostRequest'
+import E47LifeCycle from './components/E47LifeCycle'
 
 export default {
   name: 'App',
@@ -103,7 +107,9 @@ export default {
     E41DynamicComponents,
     E42KeepingDynamicComponentsAlive,
     E43TeleportComponent,
-    E45HttpGetRequest  
+    E45HttpGetRequest,
+    E46HttpPostRequest,
+    E47LifeCycle
   }
 }
 </script>
