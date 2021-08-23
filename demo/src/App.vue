@@ -1,5 +1,7 @@
 <template>
   <div>
+      <E50Reuse />
+    <E50ReusabilityWithMixins />
     <E49TemplateRefs />
     <E48GETRequestOnPageLoad />
     <E47LifeCycle />
@@ -43,7 +45,8 @@
 </template>
 
 <script>
-
+import E50Reuse from "./components/E50ReusabilityWithMixins/E50Reuse.vue"
+import E50ReusabilityWithMixins from "./components/E50ReusabilityWithMixins/E50ReusabilityWithMixins.vue"
 import HelloWorld from './components/HelloWorld.vue'
 import Home from './components/Home.vue'
 import E11vIf from './components/E11vIf.vue'
@@ -82,6 +85,8 @@ import E49TemplateRefs from './components/E49TemplateRefs'
 export default {
   name: 'App',
   components: {
+    E50Reuse,
+    E50ReusabilityWithMixins,
     HelloWorld,
     Home,
     E11vIf,
