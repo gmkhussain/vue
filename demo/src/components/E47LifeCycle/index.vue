@@ -1,33 +1,50 @@
 <template>
-    <h2>E47 E47LifeCycle</h2>
+    <div>
+        <h2>E47 E47LifeCycle</h2>
+        <div>
+            <p>childDisplay Status: {{childDisplay}}</p>
+            <button v-on:click="childDisplay = false">False</button>
+            <button v-on:click="childDisplay = true">True</button>
+            <button v-on:click="childDisplay = !childDisplay">Toggle</button>
+            <E47Child v-if="childDisplay" />
+        </div>
+    </div>
 </template>
 
 <script>
+import E47Child from './E47Child.vue'
+
 export default({
     name: 'E47',
-    beforeCreated() {
-        console.log( "beforeCreated" );
+    components: { E47Child },
+    data() {
+        return {
+            childDisplay: true
+        }
     },
-    created() {git 
-        console.log( "created" );
+    beforeCreate() {
+        console.log( "Parent  beforeCreate()" );
     },
-    beforeUpdated(){
-        console.log( "beforeUpdated" );
+    created() {
+        console.log( "Parent  created()" );
     },
-    updated(){
-        console.log( "updated" );
-    },
-    beforeMounted(){
-        console.log( "beforeMounted" );
+    beforeMount(){
+        console.log( "Parent  beforeMount()" );
     },
     mounted(){
-        console.log( "mounted" );
+        console.log( "Parent  mounted()" );
     },
-    beforeUnmouted(){
-        console.log( "beforeUnmouted" );
+    beforeUpdate(){
+        console.log( "Parent  beforeUpdate()" );
     },
-    Unmouted(){
-        console.log( "Unmouted" );
+    updated(){
+        console.log( "Parent  updated()" );
+    },
+    beforeUnmount(){
+        console.log( "Parent  beforeUnmout()" );
+    },
+    Unmounted(){
+        console.log( "Parent  Unmouted()" );
     }
 })
 </script>

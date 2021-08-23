@@ -1,5 +1,7 @@
 <template>
   <div>
+    <E49TemplateRefs />
+    <E48GETRequestOnPageLoad />
     <E47LifeCycle />
     <E46HttpPostRequest />
     <E45HttpGetRequest/>
@@ -74,6 +76,8 @@ import E43TeleportComponent from './components/E43TeleportComponent'
 import E45HttpGetRequest from './components/E45HttpGetRequest'
 import E46HttpPostRequest from './components/E46HttpPostRequest'
 import E47LifeCycle from './components/E47LifeCycle'
+import E48GETRequestOnPageLoad from './components/E48GETRequestOnPageLoad'
+import E49TemplateRefs from './components/E49TemplateRefs'
 
 export default {
   name: 'App',
@@ -109,7 +113,9 @@ export default {
     E43TeleportComponent,
     E45HttpGetRequest,
     E46HttpPostRequest,
-    E47LifeCycle
+    E47LifeCycle,
+    E48GETRequestOnPageLoad,
+    E49TemplateRefs
   }
 }
 </script>
