@@ -1,5 +1,8 @@
 <template>
   <div>
+    <E53ReplacingDataWithReactive />
+    <E52ReplacingDataWithRef />
+    <!--51 - Composition API-->
       <E50Reuse />
     <E50ReusabilityWithMixins />
     <E49TemplateRefs />
@@ -45,6 +48,8 @@
 </template>
 
 <script>
+import E53ReplacingDataWithReactive from './components/E53ReplacingDataWithReactive/E53ReplacingDataWithReactive.vue'
+import E52ReplacingDataWithRef from './components/E52ReplacingDataWithRef/E52ReplacingDataWithRef.vue'
 import E50Reuse from "./components/E50ReusabilityWithMixins/E50Reuse.vue"
 import E50ReusabilityWithMixins from "./components/E50ReusabilityWithMixins/E50ReusabilityWithMixins.vue"
 import HelloWorld from './components/HelloWorld.vue'
@@ -85,6 +90,8 @@ import E49TemplateRefs from './components/E49TemplateRefs'
 export default {
   name: 'App',
   components: {
+    E53ReplacingDataWithReactive,
+    E52ReplacingDataWithRef,
     E50Reuse,
     E50ReusabilityWithMixins,
     HelloWorld,
