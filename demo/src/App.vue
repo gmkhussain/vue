@@ -1,5 +1,6 @@
 <template>
   <div>
+    <E54ReactivityAndToRefs />
     <E53ReplacingDataWithReactive />
     <E52ReplacingDataWithRef />
     <!--51 - Composition API-->
@@ -48,6 +49,7 @@
 </template>
 
 <script>
+import E54ReactivityAndToRefs from './components/E54ReactivityAndToRefs/E54ReactivityAndToRefs.vue'
 import E53ReplacingDataWithReactive from './components/E53ReplacingDataWithReactive/E53ReplacingDataWithReactive.vue'
 import E52ReplacingDataWithRef from './components/E52ReplacingDataWithRef/E52ReplacingDataWithRef.vue'
 import E50Reuse from "./components/E50ReusabilityWithMixins/E50Reuse.vue"
@@ -90,6 +92,7 @@ import E49TemplateRefs from './components/E49TemplateRefs'
 export default {
   name: 'App',
   components: {
+    E54ReactivityAndToRefs,
     E53ReplacingDataWithReactive,
     E52ReplacingDataWithRef,
     E50Reuse,
