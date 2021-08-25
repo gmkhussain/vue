@@ -1,5 +1,6 @@
 <template>
   <div>
+    <E57ReplacingComputedProperties />
     <E56VModelAndCompositionAPI />
     <E55ReplacingMethods />
     <E54ReactivityAndToRefs />
@@ -51,6 +52,7 @@
 </template>
 
 <script>
+import E57ReplacingComputedProperties from "./components/E57ReplacingComputedProperties/E57ReplacingComputedProperties.vue"
 import E56VModelAndCompositionAPI from './components/E56VModelAndCompositionAPI/E56VModelAndCompositionAPI.vue'
 import E55ReplacingMethods from './components/E55ReplacingMethods/E55ReplacingMethods.vue'
 import E54ReactivityAndToRefs from './components/E54ReactivityAndToRefs/E54ReactivityAndToRefs.vue'
@@ -96,6 +98,7 @@ import E49TemplateRefs from './components/E49TemplateRefs'
 export default {
   name: 'App',
   components: {
+    E57ReplacingComputedProperties,
     E56VModelAndCompositionAPI,
     E55ReplacingMethods,
     E54ReactivityAndToRefs,
