@@ -26,7 +26,7 @@ export default {
                 this.err = "Qty is greate than Two"
             } else if ( newVal == 0 || newVal < 0 ) {
                 this.err = "Can't set less than zero"
-                this.qty = 1
+                this.qty = 0
             } else {
                 this.err = ''
             }
