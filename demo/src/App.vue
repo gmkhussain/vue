@@ -1,5 +1,6 @@
 <template>
   <div>
+    <E55ReplacingMethods />
     <E54ReactivityAndToRefs />
     <E53ReplacingDataWithReactive />
     <E52ReplacingDataWithRef />
@@ -49,6 +50,7 @@
 </template>
 
 <script>
+import E55ReplacingMethods from './components/E55ReplacingMethods/E55ReplacingMethods.vue'
 import E54ReactivityAndToRefs from './components/E54ReactivityAndToRefs/E54ReactivityAndToRefs.vue'
 import E53ReplacingDataWithReactive from './components/E53ReplacingDataWithReactive/E53ReplacingDataWithReactive.vue'
 import E52ReplacingDataWithRef from './components/E52ReplacingDataWithRef/E52ReplacingDataWithRef.vue'
@@ -92,6 +94,7 @@ import E49TemplateRefs from './components/E49TemplateRefs'
 export default {
   name: 'App',
   components: {
+    E55ReplacingMethods,
     E54ReactivityAndToRefs,
     E53ReplacingDataWithReactive,
     E52ReplacingDataWithRef,
