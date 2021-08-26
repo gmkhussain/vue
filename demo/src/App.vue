@@ -1,5 +1,8 @@
 <template>
   <div>
+    <E60ReplacingProvideInject />
+    <!--E59 ReplaceingWatchers Deep / Lodash -->
+    <E58ReplaceingWatchers />
     <E57ReplacingComputedProperties />
     <E56VModelAndCompositionAPI />
     <E55ReplacingMethods />
@@ -52,6 +55,8 @@
 </template>
 
 <script>
+import E60ReplacingProvideInject from './components/E60ReplacingProvideInject/E60ReplacingProvideInject.vue'
+import E58ReplaceingWatchers from './components/E58ReplacingWatchers/E58ReplacingWatchers.vue'
 import E57ReplacingComputedProperties from "./components/E57ReplacingComputedProperties/E57ReplacingComputedProperties.vue"
 import E56VModelAndCompositionAPI from './components/E56VModelAndCompositionAPI/E56VModelAndCompositionAPI.vue'
 import E55ReplacingMethods from './components/E55ReplacingMethods/E55ReplacingMethods.vue'
@@ -98,6 +103,8 @@ import E49TemplateRefs from './components/E49TemplateRefs'
 export default {
   name: 'App',
   components: {
+    E60ReplacingProvideInject,
+    E58ReplaceingWatchers,
     E57ReplacingComputedProperties,
     E56VModelAndCompositionAPI,
     E55ReplacingMethods,
