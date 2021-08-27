@@ -22,10 +22,10 @@ export default {
         }
     },
     methods: {
-        clickCounterFn(){
+        clickCounterFn() {
             this.clickCounts += 1
         },
-        mouseOverCounterFn(){
+        mouseOverCounterFn() {
             this.mouseOverCounts += 1
         }
     }

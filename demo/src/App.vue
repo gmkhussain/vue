@@ -1,5 +1,6 @@
 <template>
   <div>
+    <E65ReusabilityWithCompositionAPI />
     <E64CustomEventsAndCompositionAPI />
     <E63PropsAndCompositionAPI />
     <E62TemplateRefsAndCompositionAPI />
@@ -59,6 +60,7 @@
 </template>
 
 <script>
+import E65ReusabilityWithCompositionAPI from './components/E65ReusabilityWithCompositionAPI/E65ReusabilityWithCompositionAPI.vue'
 import E64CustomEventsAndCompositionAPI from './components/E64CustomEventsAndCompositionAPI/E64CustomEventsAndCompositionAPI.vue'
 import E63PropsAndCompositionAPI from './components/E63PropsAndCompositionAPI/E63PropsAndCompositionAPI.vue'
 import E62TemplateRefsAndCompositionAPI from './components/E62TemplateRefsAndCompositionAPI/E62TemplateRefsAndCompositionAPI.vue'
@@ -111,6 +113,7 @@ import E49TemplateRefs from './components/E49TemplateRefs'
 export default {
   name: 'App',
   components: {
+    E65ReusabilityWithCompositionAPI,
     E64CustomEventsAndCompositionAPI,
     E63PropsAndCompositionAPI,
     E62TemplateRefsAndCompositionAPI,
