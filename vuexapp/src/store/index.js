@@ -11,6 +11,7 @@ import actions from './actions'
 // import mutations from './mutations'
 
 const infoModule = {
+    namespaced: true, // if we have lot of module and same kind of computed getters
     state: {
       matchDate: '01/01/2021'
     },

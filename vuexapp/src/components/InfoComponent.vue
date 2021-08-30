@@ -13,7 +13,7 @@ import { mapGetters, mapState } from 'vuex'
 export default {
   computed: {
     ...mapState({matchDate: state => state.infoModule.matchDate}),
-    ...mapGetters(['teamACount'])
+    ...mapGetters('infoModule', ['teamACount'])
   }
 }
 </script>
