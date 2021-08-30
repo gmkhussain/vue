@@ -25,8 +25,12 @@ export default new Vuex.Store({ // Use Caps
             // method add in component
             console.log(data)
 
-
-            context.commit('changeSelectedState', data.index) // Error in v-on handler: "ReferenceError: state is not defined
+            context.commit('enableSelectedState', data.index) // Error in v-on handler: "ReferenceError: state is not defined
+        },
+        
+        removeFromTeam(context, data) {
+            context.commit('disableSelectedState', data)
+            context.commit('spliceFromTeam', data)
         }
 
     },
@@ -42,9 +46,26 @@ export default new Vuex.Store({ // Use Caps
             }
         },
 
-        changeSelectedState(state, index) {
-            console.log("index")
+        enableSelectedState(state, index) {
+            // console.log(state.students)
             state.students[index].selected = true
+        },
+        disableSelectedState(state, data) {
+            // state.students[data.index].selected = false
+            console.log("data",data)
+            state.students.forEach( (student)=>{
+                // console.log("A")
+                student.id === data.id ? student.selected = false : "";
+            })
+        },
+
+        spliceFromTeam(state, data) {
+            if(data.type==='A') {
+                state.teamA.splice(data.index, 1)
+            } else {
+                state.teamB.splice(data.index, 1)
+            }
+            // state.teamA.splice(data.index,1)
         }
     }
 })
