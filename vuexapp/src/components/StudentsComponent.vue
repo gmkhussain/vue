@@ -19,6 +19,7 @@
 
 <script>
 /* eslint-disable */
+import { mapState } from 'vuex'
 
 export default {
   name: 'StudentsComponent',
@@ -28,9 +29,12 @@ export default {
     }
   },
   computed: {
-    students () {
-      return this.$store.state.students
-    }
+    /* students () {
+       return this.$store.state.students
+     }
+     // alternate mapState
+    */
+    ...mapState(['students'])
   },
   created () {
     // this.students = data.getStudents()
