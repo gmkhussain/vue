@@ -5,7 +5,7 @@
             <li v-for="(member, index) in team" :key="member.name">
                 {{member.name}}
 
-                <button @click="removeFromTeam(type, index, member)">x</button>
+                <button @click="removeFromTeam({type, index, member})">x</button>
             </li>
         </ul>
     </div>
@@ -13,14 +13,17 @@
 
 <script>
 /* eslint-disable */ 
+import { mapActions } from 'vuex'
 
 export default {
     name: 'Team',
     props: ['type'],
     methods: {
-        removeFromTeam(type, index, member) {
+        ...mapActions(['removeFromTeam'])
+        /* removeFromTeam(type, index, member) {
             this.$store.dispatch('removeFromTeam', {type, index, member} )
         }
+        */
     },
     computed: {
         team() {

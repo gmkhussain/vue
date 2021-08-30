@@ -13,6 +13,9 @@ export default new Vuex.Store({ // Use Caps
         teamB: []
     },
     getters: { // computed properties
+        studentCount(state, gatters) {
+            return state.students.length
+        }
 
     },
     actions: { // methods

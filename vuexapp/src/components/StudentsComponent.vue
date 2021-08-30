@@ -2,6 +2,7 @@
   <div class="hello">
     <span>{{ msg }}</span>
 
+    <h4>Students - Counts: {{studentCount}}</h4>
     <table border="1">
       <tr v-for="(student, index) in students" :key="student.id">
         <td>{{index}} | {{student.id}} </td>
@@ -19,7 +20,7 @@
 
 <script>
 /* eslint-disable */
-import { mapState, mapActions } from 'vuex'
+import { mapState, mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'StudentsComponent',
@@ -34,7 +35,8 @@ export default {
      }
      // alternate mapState
     */
-    ...mapState(['students'])
+    ...mapState(['students']),
+    ...mapGetters(['studentCount'])
   },
   created () {
     // this.students = data.getStudents()
