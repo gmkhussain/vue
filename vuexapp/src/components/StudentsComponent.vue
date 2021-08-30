@@ -8,8 +8,8 @@
         <td>{{student.name}}</td>
         <td>( {{student.games.length}} )</td>
         <td>
-          <button @click="addTeamMember('A', index)" :disabled="student.selected" >Team A</button>
-          <button @click="addTeamMember('B', index)" :disabled="student.selected" >Team B</button>
+          <button @click="addTeamMember({type:'A', index})" :disabled="student.selected" >Team A</button>
+          <button @click="addTeamMember({type:'B', index})" :disabled="student.selected" >Team B</button>
         </td>
       </tr>
     </table>
@@ -19,7 +19,7 @@
 
 <script>
 /* eslint-disable */
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'StudentsComponent',
@@ -41,10 +41,13 @@ export default {
     this.$store.dispatch('getStudents')
   },
   methods: {
-    addTeamMember ( type, index ) {
+    /* addTeamMember ( type, index ) {
       // console.log( type )
       this.$store.dispatch('addTeamMember', { type, index })
-    }
+     }
+    alertnate  ...mapActions()
+    */
+    ...mapActions(['addTeamMember'])
   },
 }
 </script>
