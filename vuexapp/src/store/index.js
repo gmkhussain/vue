@@ -5,38 +5,33 @@ import Vue from 'vue';
 Vue.use(Vuex)
 
 import data from '../api/data'
+import state from './state'
+import getters from './getters'
+import actions from './actions'
+// import mutations from './mutations'
+
+const infoModule = {
+    state: {
+      matchDate: '01/01/2021'
+    },
+    getters: {
+        teamACount(state, getterts, rootState) {
+            /* thisState, thisGetter, 3rd one for rootState */
+            console.log(rootState)
+            return rootState.teamA.length
+        }
+    },
+    actions: {},
+    mutations: {}
+}
 
 export default new Vuex.Store({ // Use Caps
-    state: { // data
-        students: [],
-        teamA: [],
-        teamB: []
+    modules: {
+        infoModule
     },
-    getters: { // computed properties
-        studentCount(state, gatters) {
-            return state.students.length
-        }
-
-    },
-    actions: { // methods
-        getStudents(context) { // every action method need context param
-            context.commit('setStudents')
-        },
-
-        addTeamMember(context, data) {
-            context.commit('pushMemberToTeam', data)
-            // method add in component
-            console.log(data)
-
-            context.commit('enableSelectedState', data.index) // Error in v-on handler: "ReferenceError: state is not defined
-        },
-        
-        removeFromTeam(context, data) {
-            context.commit('disableSelectedState', data)
-            context.commit('spliceFromTeam', data)
-        }
-
-    },
+    state,
+    getters,
+    actions,
     mutations: { // Used for changing this state
         setStudents(state) {
             state.students = data.getStudents()
@@ -48,7 +43,7 @@ export default new Vuex.Store({ // Use Caps
                 state.teamB.push(state.students[data.index])
             }
         },
-
+    
         enableSelectedState(state, index) {
             console.log(state.students)
             state.students[index].selected = true
@@ -61,7 +56,7 @@ export default new Vuex.Store({ // Use Caps
                 student.id === data.member.id ? student.selected = false : "";
             })
         },
-
+    
         spliceFromTeam(state, data) {
             if(data.type==='A') {
               state.teamA.splice(data.index, 1)
