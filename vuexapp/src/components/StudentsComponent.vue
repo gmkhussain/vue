@@ -19,7 +19,6 @@
 
 <script>
 /* eslint-disable */
-import store from '../store/index'
 
 export default {
   name: 'StudentsComponent',
@@ -30,17 +29,17 @@ export default {
   },
   computed: {
     students () {
-      return store.state.students
+      return this.$store.state.students
     }
   },
   created () {
     // this.students = data.getStudents()
-    store.dispatch('getStudents')
+    this.$store.dispatch('getStudents')
   },
   methods: {
     addTeamMember ( type, index ) {
       // console.log( type )
-      store.dispatch('addTeamMember', { type, index })
+      this.$store.dispatch('addTeamMember', { type, index })
     }
   },
 }

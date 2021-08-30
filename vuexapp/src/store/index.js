@@ -47,23 +47,23 @@ export default new Vuex.Store({ // Use Caps
         },
 
         enableSelectedState(state, index) {
-            // console.log(state.students)
+            console.log(state.students)
             state.students[index].selected = true
         },
         disableSelectedState(state, data) {
+            console.log("disableSelectedState", data)
             // state.students[data.index].selected = false
             console.log("data",data)
             state.students.forEach( (student)=>{
-                // console.log("A")
-                student.id === data.id ? student.selected = false : "";
+                student.id === data.member.id ? student.selected = false : "";
             })
         },
 
         spliceFromTeam(state, data) {
             if(data.type==='A') {
-                state.teamA.splice(data.index, 1)
+              state.teamA.splice(data.index, 1)
             } else {
-                state.teamB.splice(data.index, 1)
+              state.teamB.splice(data.index, 1)
             }
             // state.teamA.splice(data.index,1)
         }
