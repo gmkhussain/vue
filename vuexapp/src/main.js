@@ -9,8 +9,10 @@ import store from './store/index'
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
-new Vue({
-  el: '#app',
+
+new Vue({ // NOTE:  The ```createApp``` method is for Vue 3, `new Vue`
+  // That is typically your root Vue instance that the rest of the application descends from. This hangs off the root element declared in an html document
+    el: '#app',
   store: store, // as global objec
   router,
   components: { App },

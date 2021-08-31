@@ -58,7 +58,13 @@ Use the following command to install the latest vue-cli version:
 
 
 
+# Issues
 
+### Vue3 "export 'createWebHistory, createRouter' was not found in 'vue-router'
+
+### Resolved
+need install vue-router like this for vue3
+```npm install vue-router@next --save```
 
 
 
