@@ -4,24 +4,28 @@
 
     <div class="row">
       <div class="col-3" v-for="(product, key) in getProducts" :key="key">
-        <h4>{{product.name}}</h4>
+        <h4>{{product.name.slice(0,28)}}...</h4>
         <p>price: {{product.price}}</p>
         <p>quantity: {{product.quantity}}</p>
-        <button>Add to cart</button>
+        <button @click="addToCart">Add to cart</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
+
 export default {
   name: 'Home',
   props: {
     msg: String
   },
+  methods: {
+   ...mapActions(['addToCart'])
+  },
   computed: {
-    ...mapGetters(['getProducts']) // from store/projcts.js
+    ...mapGetters(['getProducts']) // from store/projcts.js accessing all getter functions.
   }
 }
 </script>

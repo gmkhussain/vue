@@ -1,5 +1,8 @@
 <template>
   <div>
+
+    <vDraggable />
+
     <E65ReusabilityWithCompositionAPI />
     <E64CustomEventsAndCompositionAPI />
     <E63PropsAndCompositionAPI />
@@ -109,6 +112,7 @@ import E46HttpPostRequest from './components/E46HttpPostRequest'
 import E47LifeCycle from './components/E47LifeCycle'
 import E48GETRequestOnPageLoad from './components/E48GETRequestOnPageLoad'
 import E49TemplateRefs from './components/E49TemplateRefs'
+import vDraggable from './components/_lib/VueDraggable/vDraggable.vue'
 
 export default {
   name: 'App',
@@ -161,7 +165,9 @@ export default {
     E46HttpPostRequest,
     E47LifeCycle,
     E48GETRequestOnPageLoad,
-    E49TemplateRefs
+    E49TemplateRefs,
+
+    vDraggable
   }
 }
 </script>
