@@ -7,7 +7,7 @@
         <h4>{{product.name.slice(0,28)}}...</h4>
         <p>price: {{product.price}}</p>
         <p>quantity: {{product.quantity}}</p>
-        <button @click="addToCart">Add to cart</button>
+        <button @click="addToCart(product)">Add to cart</button>
       </div>
     </div>
   </div>

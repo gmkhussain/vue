@@ -8,15 +8,21 @@ const cart = {
     },
     getter: { },
     mutations: { 
-      addToCart() {
-        console.log("mutations...")
+      addToCart: (state, payload) => {
+        console.log("mutations running...")
+        console.log("Mutation > State: ", state )
+        console.log("Mutation > Payload: ", payload )
       }
     },
     actions: {
-      addToCart(obj, payload) {
-          console.log("Obj: ", obj)
-          console.log("Payload: ", payload)
+      addToCart: (obj, payload) => {
+        
+        console.log("Obj: ", obj)
+        console.log("Payload: ", payload)
         console.log("actions...")
+
+        obj.commit("addToCart", payload); // excute Mutations -> addToCart
+        
       }
      }    
 }
