@@ -1,7 +1,16 @@
 <template>
   <div>
+    <nav>
+      <a href='/about'>About</a>
+      <a href='/contact'>Contact</a>
+    </nav>
+    <router-view />
 
+    <hr />
+    
+ 
     <vDraggable />
+
 
     <E65ReusabilityWithCompositionAPI />
     <E64CustomEventsAndCompositionAPI />
@@ -58,7 +67,7 @@
     <E12vShow />
     <E11vIf />
     <HelloWorld msg="Welcome to Your App"/>
-    <Home />
+
   </div>
 </template>
 
@@ -79,7 +88,7 @@ import E52ReplacingDataWithRef from './components/E52ReplacingDataWithRef/E52Rep
 import E50Reuse from "./components/E50ReusabilityWithMixins/E50Reuse.vue"
 import E50ReusabilityWithMixins from "./components/E50ReusabilityWithMixins/E50ReusabilityWithMixins.vue"
 import HelloWorld from './components/HelloWorld.vue'
-import Home from './components/Home.vue'
+
 import E11vIf from './components/E11vIf.vue'
 import E12vShow from './components/E12vShow.vue'
 import E13vLoop from './components/E13vLoop.vue'
@@ -133,7 +142,7 @@ export default {
     E50Reuse,
     E50ReusabilityWithMixins,
     HelloWorld,
-    Home,
+    
     E11vIf,
     E12vShow,
     E13vLoop,
