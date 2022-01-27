@@ -6,8 +6,10 @@
     </nav>
     <router-view />
 
+
+    <DragTable />
+
     <hr />
-    
  
     <vDraggable />
 
@@ -71,7 +73,9 @@
   </div>
 </template>
 
+
 <script>
+import DragTable from './components/_lib/VueDraggable/DragTable.vue'
 import E65ReusabilityWithCompositionAPI from './components/E65ReusabilityWithCompositionAPI/E65ReusabilityWithCompositionAPI.vue'
 import E64CustomEventsAndCompositionAPI from './components/E64CustomEventsAndCompositionAPI/E64CustomEventsAndCompositionAPI.vue'
 import E63PropsAndCompositionAPI from './components/E63PropsAndCompositionAPI/E63PropsAndCompositionAPI.vue'
@@ -126,6 +130,7 @@ import vDraggable from './components/_lib/VueDraggable/vDraggable.vue'
 export default {
   name: 'App',
   components: {
+    DragTable,
     E65ReusabilityWithCompositionAPI,
     E64CustomEventsAndCompositionAPI,
     E63PropsAndCompositionAPI,

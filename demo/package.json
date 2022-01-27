@@ -13,7 +13,6 @@
     "core-js": "^3.6.5",
     "lodash": "^4.17.21",
     "vue": "^3.0.0",
-    "vue-router": "^4.0.12",
     "vue-template-compiler": "^2.6.14",
     "vuedraggable": "^4.1.0"
   },
