@@ -42,7 +42,6 @@ export default {
   methods: {  
 
     logout() {
-      
       console.log("Logout..."+ localStorage.getItem("token"))
       localStorage.removeItem("token")
       this.login_status = false
@@ -50,9 +49,7 @@ export default {
       console.log(this.login_status)
     },
 
-    async getToken() {
-
-          
+    async getToken(e) {
 
           await axios.post('/jwt-auth/v1/token', {
               username: this.username,
@@ -68,7 +65,6 @@ export default {
           .catch(err => {
             console.log("Error")
             this.token_status = "Login failed please enter correct Username and Password"
-            console.log(err)
           })
       }
 

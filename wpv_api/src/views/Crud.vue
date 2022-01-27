@@ -211,7 +211,7 @@ import axios from 'axios';
         
         if(deleteConfirm){ 
           try {
-            
+
             await axios.delete('wp/v2/posts/'+id, this.config )         
                 .then(response => {
                   console.log(this.result);
